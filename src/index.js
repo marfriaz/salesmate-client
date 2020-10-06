@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./components/App/App";
 import { GymListProvider } from "./contexts/GymListContext";
 import { GymProvider } from "./contexts/GymContext";
-import "./index.css";
+// import "./index.css";
 
 ReactDOM.render(
   <BrowserRouter>
