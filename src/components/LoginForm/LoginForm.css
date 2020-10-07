@@ -1,0 +1,17 @@
+.Form_Label {
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+}
+
+.Form-Button {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 27px;
+  background-color: red;
+  color: #fff;
+  border: 0;
+  border-radius: 500px;
+}
