@@ -17,9 +17,9 @@ export default class ListColumns extends Component {
       <nav className="Header">
         <div className="Header_login">
           <div className="Header__not-logged-in">
+            <span className="col">Stage &nbsp;</span>
             <span className="col">Account Name &nbsp;</span>
-            <span className="col">Categories &nbsp;</span>
-            <span className="col">Phone &nbsp;</span>
+            <span className="col">Category &nbsp;</span>
             <span className="col">Review Count &nbsp;</span>
           </div>
         </div>

@@ -13,10 +13,10 @@ export default class ListItem extends Component {
       <Link to={`/accounts/${account.id}`}>
         <li className="List_Item">
           <div className="List_Item_Content">
-            <div>{account.name}</div>
-            <div>{account.categories[0].title}</div>
-            <div>{account.phone}</div>
-            <div>{account.review_count}</div>
+            <span>{account.stage} &nbsp;</span>
+            <span>{account.name} &nbsp;</span>
+            <span>{account.categories[0].title} &nbsp;</span>
+            <span>{account.review_count} &nbsp;</span>
           </div>
         </li>
       </Link>
