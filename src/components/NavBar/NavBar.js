@@ -15,7 +15,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav className="Header">
-        <div class="name">
+        <div className="name">
           <SearchBox />
         </div>
 

@@ -5,7 +5,6 @@ import { Section } from "../../components/Utils/Utils";
 import Header from "../../components/Header/Header";
 import NavBar from "../../components/NavBar/NavBar";
 import ListNav from "../../components/ListNav/ListNav";
-import ListColumns from "../../components/ListColumns/ListColumns";
 import ListItem from "../../components/ListItem/ListItem";
 import "./HomePage.css";
 
