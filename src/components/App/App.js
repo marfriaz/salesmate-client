@@ -12,7 +12,6 @@ import AccountPage from "../../routes/AccountPage/AccountPage";
 import EditPage from "../../routes/EditPage/EditPage";
 import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
 import "./App.css";
-
 import Store from "../STORE/store";
 
 class App extends Component {
@@ -27,7 +26,6 @@ class App extends Component {
 
   render() {
     const { accountList, error } = this.state;
-
     return (
       <div className="App">
         <header className="App__header">
@@ -112,9 +110,9 @@ const findAccount = (accountList = [], accountId) =>
   accountList.find((account) => account.id == accountId);
 
 const findLeads = (accountList = []) =>
-  accountList.filter((account) => account.stage === "lead");
+  accountList.filter((account) => account.stage === "Lead");
 
 const findSold = (accountList = []) =>
-  accountList.filter((account) => account.stage === "closed");
+  accountList.filter((account) => account.stage === "Sold");
 
 export default App;
