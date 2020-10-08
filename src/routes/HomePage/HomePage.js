@@ -55,19 +55,19 @@ export default class HomePage extends Component {
               <div className="Account_List_Nav">
                 <ListNav />
               </div>
-              <div className="Account_List_Columns">
-                <ListColumns />
-              </div>
-              <div className="Account_List">
-                <ul>
-                  {/* {error ? (
-                        <p className="red">There was an error, try again</p>
-                      ) : (
-                        this.renderAccountList()
-                      )} */}
-                  {this.renderAccountList()}
-                </ul>
-              </div>
+              <table id="customers">
+                <tr>
+                  <th>Account Name</th>
+                  <th>Stage</th>
+                  <th>Category</th>
+                  <th>Review Count</th>
+                </tr>
+                {error ? (
+                  <p className="red">There was an error, try again</p>
+                ) : (
+                  this.renderAccountList()
+                )}
+              </table>
               <button>View 10 More</button>
             </div>
           </div>

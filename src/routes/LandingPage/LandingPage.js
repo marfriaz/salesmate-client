@@ -22,7 +22,7 @@ export default class LandingPage extends Component {
       <>
         <Section className="LandingPage">
           <div>
-            <div>KitchenForce</div>
+            <div className="logo">KitchenSupplier</div>
             <div>
               a better Customer Relationship Management platform for selling
               your products and services to restaurant businesses
