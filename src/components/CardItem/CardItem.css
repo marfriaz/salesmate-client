@@ -1,0 +1,20 @@
+.AccountPage__card__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 50%;
+  border-bottom: 1px #cdcfd2 solid;
+  padding: 4px 2%;
+  min-height: 28px;
+}
+
+.AccountPage__card__item__key {
+  display: flex;
+  flex: 1;
+}
+
+.AccountPage__card__item__value {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
