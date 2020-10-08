@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faThList,
-  faCalendar,
-  faPiggyBank,
+  faBookOpen,
+  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faYelp,
@@ -23,29 +23,28 @@ export default class Description extends Component {
             icon={faThList}
           />
         ),
-        title: "Put SMB Sales success on the menu",
+        title: "Accounts",
         description: "Gives teams a shared view of every customer",
       },
       {
         icon: (
           <FontAwesomeIcon
             className="Calendar_icon Description_icon icon"
-            icon={faYelp}
+            icon={faUsers}
           />
         ),
-        title: "All restaurant businesses are supplied by Yelp",
-        description: "Yes",
+        title: "Contacts",
+        description: "Keep track of who you're contacting",
       },
       {
         icon: (
           <FontAwesomeIcon
             className="PiggyBank_icon Description_icon icon"
-            icon={faCalendar}
+            icon={faBookOpen}
           />
         ),
-        title:
-          "Check in with businesses that may have had supply or staff affected by Covid",
-        description: "Yes",
+        title: "Notes",
+        description: "Keep track of your notes",
       },
     ];
     const list = content.map((item, index) => (

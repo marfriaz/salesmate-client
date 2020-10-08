@@ -59,8 +59,8 @@ export default class HomePage extends Component {
                 <tr>
                   <th>Account Name</th>
                   <th>Stage</th>
-                  <th>Category</th>
-                  <th>Review Count</th>
+                  <th>Industry</th>
+                  <th>Territory</th>
                 </tr>
                 {error ? (
                   <p className="red">There was an error, try again</p>
@@ -68,7 +68,6 @@ export default class HomePage extends Component {
                   this.renderAccountList()
                 )}
               </table>
-              <button>View 10 More</button>
             </div>
           </div>
         </Section>

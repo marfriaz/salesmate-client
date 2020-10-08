@@ -19,7 +19,6 @@ export default class ListNav extends Component {
           <div className="Header__not-logged-in">
             <div>Filter goes here &nbsp; </div>
             <Link to="/signup">Create New Account &nbsp;</Link>
-            <Link to="/login">Ingest Accounts &nbsp;</Link>
           </div>
         </div>
       </nav>
