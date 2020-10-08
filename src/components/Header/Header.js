@@ -36,7 +36,7 @@ export default class Header extends Component {
         <h1>
           <Link to="/" className="Header_title">
             <FontAwesomeIcon className="Dumbbell_icon" icon={faCloud} />{" "}
-            <span className="logo">Kitchen-SalesForce</span>
+            <span className="logo">SalesMate</span>
           </Link>
         </h1>
         <div className="Header_login">

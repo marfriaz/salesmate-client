@@ -13,7 +13,7 @@ import EditPage from "../../routes/EditPage/EditPage";
 import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
 import "./App.css";
 
-import Store from "../../store";
+import Store from "../STORE/store";
 
 class App extends Component {
   state = { ...Store, error: false };

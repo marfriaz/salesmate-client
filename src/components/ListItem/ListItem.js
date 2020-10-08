@@ -15,8 +15,8 @@ export default class ListItem extends Component {
           <Link to={`/accounts/${account.id}`}>{account.name}</Link> &nbsp;
         </td>
         <td>{account.stage} &nbsp;</td>
-        <td>{account.categories[0].title} &nbsp;</td>
-        <td>{account.review_count} &nbsp;</td>
+        <td>{account.industry} &nbsp;</td>
+        <td>{account.territory} &nbsp;</td>
       </tr>
     );
   }
