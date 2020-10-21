@@ -5,6 +5,7 @@ import { Section } from "../../components/Utils/Utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import CardItem from "../../components/CardItem/CardItem";
+import CardItemAddress from "../../components/CardItemAddress/CardItemAddress";
 
 import "./AccountPage.css";
 
@@ -43,29 +44,63 @@ export default class AccountPage extends Component {
     ));
   }
 
+  renderAccountListAddress(accountInfo) {
+    return accountInfo.map((address, key) => (
+      <CardItemAddress
+        key={address.key}
+        name={address.name}
+        value={address.address_value}
+      />
+    ));
+  }
+
   render() {
     const { account, error } = this.props;
     const businessDetails = [
-      { name: "Account Name", value: account.name },
-      { name: "Stage", value: account.stage },
-      { name: "Website", value: account.website },
-      { name: "Phone Number", value: account.phone },
-      { name: "Fax", value: account.fax },
-      { name: "Industry", value: account.industry },
-      { name: "Territory", value: account.territory },
-      { name: "Employee Range", value: account.employee_range },
-      { name: "LI CO Page", value: account.licopage },
+      { name: "Account Name", value: [account.name] },
+      { name: "Stage", value: [account.stage] },
+      { name: "Website", value: [account.website] },
+      { name: "Industry", value: [account.industry] },
+      { name: "Phone Number", value: [account.phone] },
+      { name: "Fax", value: [account.fax] },
+      { name: "Territory", value: [account.territory] },
+      { name: "Employee Range", value: [account.employee_range] },
+      { name: "LI CO Page", value: [account.licopage] },
     ];
     const address = [
-      { name: "Billing", value: account.country },
-      { name: "Shipping", value: account.country },
+      {
+        name: "Billing",
+        address_value: [
+          {
+            addresss_section: "Street",
+            value: account.address.street_address,
+          },
+          { addresss_section: "City", value: account.address.city },
+          { addresss_section: "Zip Code", value: account.address.zip_code },
+          { addresss_section: "State", value: account.address.state },
+          { addresss_section: "Country", value: account.address.country },
+        ],
+      },
+      {
+        name: "Shipping",
+        address_value: [
+          {
+            addresss_section: "Street",
+            value: account.address.street_address,
+          },
+          { addresss_section: "City", value: account.address.city },
+          { addresss_section: "Zip Code", value: account.address.zip_code },
+          { addresss_section: "State", value: account.address.state },
+          { addresss_section: "Country", value: account.address.country },
+        ],
+      },
     ];
 
     const contacts = [
-      { name: "Employee Name", value: account.contact.name },
-      { name: "Employee Title", value: account.contact.title },
-      { name: "Phone", value: account.contact.phone },
-      { name: "Email", value: account.contact.email },
+      { name: "Employee Name", value: [account.contact.name] },
+      { name: "Employee Title", value: [account.contact.title] },
+      { name: "Phone", value: [account.contact.phone] },
+      { name: "Email", value: [account.contact.email] },
     ];
 
     return (
@@ -105,7 +140,7 @@ export default class AccountPage extends Component {
             <div className="AccountPage__card">
               <div className="AccountPage__card__header">Address</div>
               <div className="AccountPage__card__fields">
-                {this.renderAccountList(address)}
+                {this.renderAccountListAddress(address)}
               </div>
             </div>
 
@@ -114,6 +149,7 @@ export default class AccountPage extends Component {
               <div className="AccountPage__card__fields">
                 {this.renderAccountList(contacts)}
               </div>
+              <button>Add Contact</button>
             </div>
 
             <div className="AccountPage__card">

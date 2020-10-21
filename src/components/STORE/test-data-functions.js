@@ -1,6 +1,7 @@
 var faker = require("faker");
 const industries = require("./industries");
-const countries = require("./countries");
+const addresses = require("./addresses");
+const territories = require("./territories");
 const companies = require("./companies");
 const titles = require("./contact_titles");
 
@@ -12,31 +13,25 @@ function generateContactNames() {
 }
 function generatePhoneNumbers() {
   var a = [];
-  for (var i = 0; i < 50; i++) a.push(faker.phone.phoneNumber());
+  for (var i = 0; i < 50; i++) a.push(faker.phone.phoneNumberFormat());
   return a;
 }
 function generateContactPhoneNumbers() {
   var a = [];
-  for (var i = 0; i < 50; i++) a.push(faker.phone.phoneNumber());
+  for (var i = 0; i < 50; i++) a.push(faker.phone.phoneNumberFormat());
   return a;
 }
 function generateContactEmails() {
   var a = [];
-  for (var i = 0; i < 50; i++) a.push(faker.internet.email());
+  for (var i = 0; i < 50; i++) a.push(faker.internet.email().toLowerCase());
   return a;
 }
 
 function generateFaxNumbers() {
   var a = [];
-  for (var i = 0; i < 50; i++) a.push(faker.phone.phoneNumber());
+  for (var i = 0; i < 50; i++) a.push(faker.phone.phoneNumberFormat());
   return a;
 }
-
-// function generateAddress() {
-//   var a = [];
-//   for (var i = 0; i < 50; i++) a.push(rrag.random());
-//   return a;
-// }
 
 function generateIds() {
   var a = [];
@@ -50,6 +45,7 @@ function generateIndustry() {
     a.push(industries[Math.floor(Math.random() * industries.length)]);
   return a;
 }
+
 function generateStage() {
   const stages = ["Not Interested", "Lead", "Sold"];
   var a = [];
@@ -63,6 +59,15 @@ function generateContactTitle() {
   for (var i = 0; i < 50; i++)
     a.push(titles[Math.floor(Math.random() * titles.length)]);
   return a;
+}
+
+function toUpper(str) {
+  var splitStr = str.toLowerCase().split(" ");
+  for (var i = 0; i < splitStr.length; i++) {
+    splitStr[i] =
+      splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+  }
+  return splitStr.join(" ");
 }
 
 function generateRange() {
@@ -83,11 +88,12 @@ function generateRange() {
   return a;
 }
 
-function generateCountry() {
-  var a = [];
-  for (var i = 0; i < 50; i++)
-    a.push(countries[Math.floor(Math.random() * countries.length)]);
-  return a;
+function generateTerritory(country) {
+  for (var i = 0; i < territories.length; i++) {
+    if (country === territories[i].name) {
+      return territories[i].territory;
+    }
+  }
 }
 
 function generateCompanies() {
@@ -99,7 +105,9 @@ function generateCompanies() {
 function generateWebsites() {
   const websites = [];
   for (var i = 0; i < 50; i++)
-    websites.push("www." + companies[i].replace(" ").toLowerCase() + ".com");
+    websites.push(
+      "www." + companies[i].replace(" ", "").toLowerCase() + ".com"
+    );
   return websites;
 }
 
@@ -108,7 +116,7 @@ function liCoPage() {
   for (var i = 0; i < 50; i++)
     liCoPages.push(
       "www.linkedin.com/company/" +
-        companies[i].replace(" ").toLowerCase() +
+        companies[i].replace(" ", "").toLowerCase() +
         "/about"
     );
   return liCoPages;
@@ -117,7 +125,7 @@ function liCoPage() {
 function generateInfo() {
   ids = generateIds();
   names = generateContactNames();
-  country = generateCountry();
+  country = generateTerritory();
   phone = generatePhoneNumbers();
   contact_phone = generateContactPhoneNumbers();
   fax = generateFaxNumbers();
@@ -138,15 +146,20 @@ function generateInfo() {
         name: names[id],
         phone: contact_phone[id],
         email: contact_email[id],
-        title: contact_title[id],
+        title: toUpper(contact_title[id]),
       },
-      // address: addresses[id],
+      address: {
+        street_address: addresses[id].street_address,
+        city: addresses[id].city,
+        zip_code: addresses[id].zip_code,
+        state: addresses[id].state,
+        country: addresses[id].country,
+      },
       website: website[id],
       phone: phone[id],
       stage: stage[id],
       fax: fax[id],
-      country: country[index].name,
-      territory: country[index].territory,
+      territory: generateTerritory(addresses[id].country),
       industry: industry[index],
       licopage: liCompanyPage[id],
       employee_range: range[id],
@@ -155,6 +168,7 @@ function generateInfo() {
   return items;
 }
 console.log(generateInfo());
+
 // const store = generateInfo();
 
 // module.exports = store;

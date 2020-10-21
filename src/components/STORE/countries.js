@@ -312,8 +312,8 @@ const EMEA = [
 
 function merge() {
   const a = [];
-  a.push.apply(NAMER, EMEA, APAC);
-  return NAMER;
+  a.push(EMEA);
+  return console.log(a);
 }
 
 module.exports = merge();

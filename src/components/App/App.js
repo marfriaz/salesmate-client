@@ -11,6 +11,7 @@ import SignUpPage from "../../routes/SignUpPage/SignUpPage";
 import AccountPage from "../../routes/AccountPage/AccountPage";
 import EditPage from "../../routes/EditPage/EditPage";
 import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
+import CreatePage from "../../routes/CreatePage/CreatePage";
 import "./App.css";
 import Store from "../STORE/store";
 
@@ -41,7 +42,7 @@ class App extends Component {
 
           <Switch>
             <Route exact path={"/"} component={LandingPage} />
-            <Route exact path={"/accounts/create"} component={EditPage} />
+            <Route exact path={"/accounts/create"} component={CreatePage} />
             <Route
               exact
               path={"/accounts/leads"}
@@ -62,6 +63,14 @@ class App extends Component {
                 );
               }}
             />
+            <Route
+              exact
+              path={"/accounts/create"}
+              render={(routeProps) => (
+                <CreatePage error={error} {...routeProps} />
+              )}
+            />
+
             <Route
               path={"/accounts/:accountId"}
               render={(routeProps) => {

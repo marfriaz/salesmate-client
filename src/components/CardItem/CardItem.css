@@ -18,3 +18,9 @@
   flex: 1;
   flex-wrap: wrap;
 }
+
+.editButton {
+  background-color: transparent;
+  /* color: blue; */
+  border: none;
+}
