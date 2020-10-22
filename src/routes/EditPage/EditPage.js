@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import GymContext from "../../contexts/GymContext";
-import GymApiService from "../../services/gym-api-service";
+import AccountApiService from "../../services/account-api-service";
 import { Section } from "../../components/Utils/Utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";

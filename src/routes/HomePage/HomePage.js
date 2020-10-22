@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import GymListContext from "../../contexts/GymListContext";
-import GymApiService from "../../services/gym-api-service";
+import AccountApiService from "../../services/account-api-service";
 import { Section } from "../../components/Utils/Utils";
 import Header from "../../components/Header/Header";
 import NavBar from "../../components/NavBar/NavBar";
@@ -19,7 +19,7 @@ export default class HomePage extends Component {
 
   componentDidMount() {
     this.context.clearError();
-    GymApiService.getGyms()
+    AccountApiService.getAccounts()
       .then(this.context.setGymList)
       .catch(this.context.setError);
   }

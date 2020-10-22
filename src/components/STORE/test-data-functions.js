@@ -27,6 +27,12 @@ function generateContactEmails() {
   return a;
 }
 
+function generateText() {
+  var a = [];
+  for (var i = 0; i < 50; i++) a.push(faker.lorem.sentence());
+  return a;
+}
+
 function generateFaxNumbers() {
   var a = [];
   for (var i = 0; i < 50; i++) a.push(faker.phone.phoneNumberFormat());
@@ -43,6 +49,12 @@ function generateIndustry() {
   var a = [];
   for (var i = 0; i < 50; i++)
     a.push(industries[Math.floor(Math.random() * industries.length)]);
+  return a;
+}
+
+function generateRandomNumber() {
+  var a = [];
+  for (var i = 0; i < 50; i++) a.push(Math.floor(Math.random() * 3) + 1);
   return a;
 }
 
@@ -116,13 +128,18 @@ function liCoPage() {
   for (var i = 0; i < 50; i++)
     liCoPages.push(
       "www.linkedin.com/company/" +
-        companies[i].replace(" ", "").toLowerCase() +
+        companies[i]
+          .replace(" ", "")
+          .replace("-", "")
+          .replace(".", "")
+          .toLowerCase() +
         "/about"
     );
   return liCoPages;
 }
 
 function generateInfo() {
+  userIds = generateRandomNumber();
   ids = generateIds();
   names = generateContactNames();
   country = generateTerritory();
@@ -133,38 +150,58 @@ function generateInfo() {
   company = generateCompanies();
   website = generateWebsites();
   stage = generateStage();
-  liCompanyPage = liCoPage();
+  linkedin = liCoPage();
   range = generateRange();
   contact_email = generateContactEmails();
   contact_title = generateContactTitle();
+  text = generateText();
   // addresses = generateAddress();
   var items = ids.map((id, index) => {
-    return {
-      id: id,
-      name: company[id],
-      contact: {
-        name: names[id],
-        phone: contact_phone[id],
-        email: contact_email[id],
-        title: toUpper(contact_title[id]),
-      },
-      address: {
-        street_address: addresses[id].street_address,
-        city: addresses[id].city,
-        zip_code: addresses[id].zip_code,
-        state: addresses[id].state,
-        country: addresses[id].country,
-      },
-      website: website[id],
-      phone: phone[id],
-      stage: stage[id],
-      fax: fax[id],
-      territory: generateTerritory(addresses[id].country),
-      industry: industry[index],
-      licopage: liCompanyPage[id],
-      employee_range: range[id],
-    };
+    return `(${userIds[id]}, '${company[id]}', '${stage[id]}', '${
+      website[id]
+    }', '${industry[id]}', '${generateTerritory(addresses[id].country)}', '${
+      range[id]
+    }', '${phone[id]}', '${fax[id]}', '${linkedin[id]}')`;
+
+    // var items = ids.map((id, index) => {
+    //   return `(${id}, '${addresses[id].street_address}', '${addresses[id].city}', '${addresses[id].zip_code}', '${addresses[id].state}', '${addresses[id].country}')`;
+
+    // var items = ids.map((id, index) => {
+    //   return `(${userIds[id]}, ${id}, '${text[id]}')`;
+
+    // var items = ids.map((id, index) => {
+    //   return `(${userIds[id]}, ${id}, '${names[id]}', '${contact_title[id]}', '${contact_phone[id]}', '${contact_email[id]}')`;
+
+    // {
+    // id: id,
+    // name: company[id],
+    // stage: stage[id],
+    // website: website[id],
+    // industry: industry[index],
+    // territory: generateTerritory(addresses[id].country),
+    // employee_range: range[id],
+    // phone: phone[id],
+    // fax: fax[id],
+    // linkedin: linkedin[id],
+    // contact: {
+    //   name: names[id],
+    //   phone: contact_phone[id],
+    //   email: contact_email[id],
+    //   title: toUpper(contact_title[id]),
+    // },
+    // address: {
+    //   street: addresses[id].street_address,
+    //   city: addresses[id].city,
+    //   zip_code: addresses[id].zip_code,
+    //   state: addresses[id].state,
+    //   country: addresses[id].country,
+    // },
+    // };
   });
+  for (x = 0; x < 50; x++) {
+    items[x].replace(/\"/g, "");
+  }
+
   return items;
 }
 console.log(generateInfo());
