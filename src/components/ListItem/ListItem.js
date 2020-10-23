@@ -8,7 +8,7 @@ import "./ListItem.css";
 
 export default class ListItem extends Component {
   render() {
-    const { account = [] } = this.props;
+    const { account = {} } = this.props;
     return (
       <tr List_Item>
         <td>

@@ -59,7 +59,7 @@ function generateRandomNumber() {
 }
 
 function generateStage() {
-  const stages = ["Not Interested", "Lead", "Sold"];
+  const stages = ["not-interested", "lead", "sold"];
   var a = [];
   for (var i = 0; i < 50; i++)
     a.push(stages[Math.floor(Math.random() * stages.length)]);

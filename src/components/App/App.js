@@ -44,6 +44,10 @@ class App extends Component {
             <Route exact path={"/"} component={LandingPage} />
             <Route exact path={"/accounts/create"} component={CreatePage} />
             <Route
+              path={"/accounts/stage/:accountStage"}
+              component={HomePage}
+            />
+            {/* <Route
               exact
               path={"/accounts/leads"}
               render={(routeProps) => {
@@ -62,7 +66,7 @@ class App extends Component {
                   <HomePage accountList={sold} error={error} {...routeProps} />
                 );
               }}
-            />
+            /> */}
             <Route
               exact
               path={"/accounts/create"}

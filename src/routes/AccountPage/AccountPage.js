@@ -52,6 +52,7 @@ export default class AccountPage extends Component {
       this.setState({
         notes: res2,
       });
+
       const res3 = await AccountApiService.getAccountContacts(accountId);
       this.setState({
         contacts: res3,
@@ -93,6 +94,10 @@ export default class AccountPage extends Component {
     ));
   }
 
+  changePage = (page) => {
+    this.setState({ page });
+  };
+
   render() {
     // const { account, error } = this.props;
     const { account, address, contacts, notes } = this.state;
@@ -127,9 +132,8 @@ export default class AccountPage extends Component {
     return (
       <>
         <div className="AccountPage">
-          <form className="HostGymForm" onSubmit={this.handleSubmit}>
-            <div className="AccountPage__header">
-              {/* <div className="Account__photo">
+          <div className="AccountPage__header">
+            {/* <div className="Account__photo">
                 {" "}
                 <img
                   className=""
@@ -138,48 +142,47 @@ export default class AccountPage extends Component {
                   width="100px"
                 />
               </div> */}
-              <div className="Account__name">
-                <h1>{account.name}</h1>
-              </div>
+            <div className="Account__name">
+              <h1>{account.name}</h1>
             </div>
+          </div>
 
-            <div className="AccountPage__buttons">
-              <button className="Account__lead">Mark As Lead</button>
-              <button className="Account__not_interested">
-                Mark as Not Interested
-              </button>
-              <button className="Account__sold">Mark as SOLD</button>
-            </div>
+          <div className="AccountPage__buttons">
+            <button className="Account__lead">Mark As Lead</button>
+            <button className="Account__not_interested">
+              Mark as Not Interested
+            </button>
+            <button className="Account__sold">Mark as SOLD</button>
+          </div>
 
-            <div className="AccountPage__card">
-              <div className="AccountPage__card__header">Business Details</div>
-              <div className="AccountPage__card__fields">
-                {this.renderAccountList(businessDetails)}
-              </div>
+          <div className="AccountPage__card">
+            <div className="AccountPage__card__header">Business Details</div>
+            <div className="AccountPage__card__fields">
+              {this.renderAccountList(businessDetails)}
             </div>
+          </div>
 
-            <div className="AccountPage__card">
-              <div className="AccountPage__card__header">Address</div>
-              <div className="AccountPage__card__fields">
-                {this.renderAccountListAddress(address1)}
-              </div>
+          <div className="AccountPage__card">
+            <div className="AccountPage__card__header">Address</div>
+            <div className="AccountPage__card__fields">
+              {this.renderAccountListAddress(address1)}
             </div>
+          </div>
 
-            <div className="AccountPage__card">
-              <div className="AccountPage__card__header">Contacts</div>
-              <div className="AccountPage__card__fields">
-                {this.renderAccountListContacts(contacts)}
-              </div>
-              <button>Add Contact</button>
+          <div className="AccountPage__card">
+            <div className="AccountPage__card__header">Contacts</div>
+            <div className="AccountPage__card__fields">
+              {this.renderAccountListContacts(contacts)}
             </div>
-            <div className="AccountPage__card">
-              <div className="AccountPage__card__header">Notes</div>
-              <div className="AccountPage__card__fields">
-                {this.renderAccountListNotes(notes)}
-              </div>
-              <button>Add Note</button>
+            <button onClick={() => this.clickPage("add")}>Add Contact</button>
+          </div>
+          <div className="AccountPage__card">
+            <div className="AccountPage__card__header">Notes</div>
+            <div className="AccountPage__card__fields">
+              {this.renderAccountListNotes(notes)}
             </div>
-          </form>
+            <button>Add Note</button>
+          </div>
         </div>
       </>
     );
