@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-import GymContext from "../../contexts/GymContext";
 import AccountApiService from "../../services/account-api-service";
-import { Section } from "../../components/Utils/Utils";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import CardItem from "../../components/CardItem/CardItem";
 import CardItemAddress from "../../components/CardItemAddress/CardItemAddress";
-import AccountPageContacts from "../../components/AccountPageContacts/AccountPageContacts";
-import AccountPageNotes from "../../components/AccountPageNotes/AccountPageNotes";
+import Notes from "../../components/Notes/Notes";
+import Contacts from "../../components/Contacts/Contacts";
+import EditModal from "../../components/EditModal/EditModal";
 
 import "./AccountPage.css";
 
@@ -17,8 +14,7 @@ export default class AccountPage extends Component {
     this.state = {
       account: {},
       address: {},
-      notes: [],
-      contacts: [],
+      modalIsOpen: false,
       error: null,
     };
   }
@@ -26,17 +22,6 @@ export default class AccountPage extends Component {
   static defaultProps = {
     match: { params: {} },
   };
-
-  // static contextType = GymContext;
-
-  // componentDidMount() {
-  //   // this.context.clearError();
-  //   const { accountId } = this.props.match.params;
-
-  //   AccountApiService.getAccount(accountId)
-  //     .then((res) => this.setState({ account: res }))
-  //     .catch((err) => this.setState({ error: err }));
-  // }
 
   async componentDidMount() {
     const { accountId } = this.props.match.params;
@@ -48,15 +33,6 @@ export default class AccountPage extends Component {
         account: res,
         address: res.address,
       });
-      const res2 = await AccountApiService.getAccountNotes(accountId);
-      this.setState({
-        notes: res2,
-      });
-
-      const res3 = await AccountApiService.getAccountContacts(accountId);
-      this.setState({
-        contacts: res3,
-      });
     } catch (err) {
       this.setState({ error: err.message });
     }
@@ -64,6 +40,14 @@ export default class AccountPage extends Component {
 
   componentWillUnmount() {
     this.setState({ error: null });
+  }
+
+  handleModal() {
+    if (this.state.modalIsOpen == false) {
+      this.setState({ modalIsOpen: true });
+    } else {
+      this.setState({ modalIsOpen: false });
+    }
   }
 
   renderAccountList(account) {
@@ -79,18 +63,6 @@ export default class AccountPage extends Component {
         name={field.name}
         value={field.address_value}
       />
-    ));
-  }
-
-  renderAccountListContacts(accountInfo) {
-    return accountInfo.map((field, key) => (
-      <AccountPageContacts key={key} value={field} />
-    ));
-  }
-
-  renderAccountListNotes(accountInfo) {
-    return accountInfo.map((field, key) => (
-      <AccountPageNotes key={key} value={field} />
     ));
   }
 
@@ -113,7 +85,7 @@ export default class AccountPage extends Component {
       { name: "Fax", value: [account.fax] },
       { name: "LinkedIn", value: [account.licopage] },
     ];
-    const address1 = [
+    const accountAddress = [
       {
         name: "Billing",
         address_value: [
@@ -128,31 +100,25 @@ export default class AccountPage extends Component {
         ],
       },
     ];
+    const { accountId } = this.props.match.params;
 
     return (
       <>
         <div className="AccountPage">
           <div className="AccountPage__header">
-            {/* <div className="Account__photo">
-                {" "}
-                <img
-                  className=""
-                  alt="Listed Gym"
-                  src={account.image_url}
-                  width="100px"
-                />
-              </div> */}
             <div className="Account__name">
               <h1>{account.name}</h1>
             </div>
           </div>
-
+          <EditModal
+            modalIsOpen={this.state.modalIsOpen}
+            triggerModal={() => this.handleModal()}
+          />
           <div className="AccountPage__buttons">
-            <button className="Account__lead">Mark As Lead</button>
-            <button className="Account__not_interested">
-              Mark as Not Interested
+            <button onClick={() => this.handleModal()} className="button">
+              Edit
             </button>
-            <button className="Account__sold">Mark as SOLD</button>
+            <button className="Account__not_interested">Delete</button>
           </div>
 
           <div className="AccountPage__card">
@@ -165,24 +131,12 @@ export default class AccountPage extends Component {
           <div className="AccountPage__card">
             <div className="AccountPage__card__header">Address</div>
             <div className="AccountPage__card__fields">
-              {this.renderAccountListAddress(address1)}
+              {this.renderAccountListAddress(accountAddress)}
             </div>
           </div>
 
-          <div className="AccountPage__card">
-            <div className="AccountPage__card__header">Contacts</div>
-            <div className="AccountPage__card__fields">
-              {this.renderAccountListContacts(contacts)}
-            </div>
-            <button onClick={() => this.clickPage("add")}>Add Contact</button>
-          </div>
-          <div className="AccountPage__card">
-            <div className="AccountPage__card__header">Notes</div>
-            <div className="AccountPage__card__fields">
-              {this.renderAccountListNotes(notes)}
-            </div>
-            <button>Add Note</button>
-          </div>
+          <Contacts accountId={accountId} />
+          <Notes accountId={accountId} />
         </div>
       </>
     );
