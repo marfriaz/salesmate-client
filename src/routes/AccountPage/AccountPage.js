@@ -21,6 +21,9 @@ export default class AccountPage extends Component {
 
   static defaultProps = {
     match: { params: {} },
+    history: {
+      push: () => {},
+    },
   };
 
   async componentDidMount() {
@@ -48,6 +51,12 @@ export default class AccountPage extends Component {
     } else {
       this.setState({ modalIsOpen: false });
     }
+  }
+
+  handleDelete(accountId) {
+    AccountApiService.deleteAccount(accountId)
+      .then(() => this.history.push("/"))
+      .catch((err) => this.setState({ error: err }));
   }
 
   renderAccountList(account) {
@@ -83,8 +92,24 @@ export default class AccountPage extends Component {
       { name: "Employee Range", value: [account.employee_range] },
       { name: "Phone", value: [account.phone] },
       { name: "Fax", value: [account.fax] },
-      { name: "LinkedIn", value: [account.licopage] },
+      { name: "LinkedIn", value: [account.linkedin] },
     ];
+    // const accountAddress = [
+    //   {
+    //     name: "Billing",
+    //     address_value: [
+    //       {
+    //         addresss_section: "Street",
+    //         value: address.street,
+    //       },
+    //       { addresss_section: "City", value: address.city },
+    //       { addresss_section: "Zip Code", value: address.zip_code },
+    //       { addresss_section: "State", value: address.state },
+    //       { addresss_section: "Country", value: address.country },
+    //     ],
+    //   },
+    // ];
+
     const accountAddress = [
       {
         name: "Billing",
@@ -118,13 +143,19 @@ export default class AccountPage extends Component {
             <button onClick={() => this.handleModal()} className="button">
               Edit
             </button>
-            <button className="Account__not_interested">Delete</button>
+            <button
+              onClick={() => this.handleDelete(accountId)}
+              className="button"
+            >
+              Delete
+            </button>
           </div>
 
           <div className="AccountPage__card">
             <div className="AccountPage__card__header">Business Details</div>
             <div className="AccountPage__card__fields">
               {this.renderAccountList(businessDetails)}
+              {this.renderAccountListAddress(accountAddress)}
             </div>
           </div>
 

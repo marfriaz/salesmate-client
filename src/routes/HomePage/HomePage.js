@@ -40,6 +40,26 @@ export default class HomePage extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    const { accountStage } = this.props.match.params;
+
+    if (prevProps.match.params.accountStage !== accountStage) {
+      if (accountStage == "leads") {
+        AccountApiService.getAccountByStage("lead")
+          .then((res) => this.setState({ accountList: res }))
+          .catch((err) => this.setState({ error: err }));
+      } else if (accountStage == "sold") {
+        AccountApiService.getAccountByStage("sold")
+          .then((res) => this.setState({ accountList: res }))
+          .catch((err) => this.setState({ error: err }));
+      } else {
+        AccountApiService.getAccounts()
+          .then((res) => this.setState({ accountList: res }))
+          .catch((err) => this.setState({ error: err }));
+      }
+    }
+  }
+
   componentWillUnmount() {
     this.setState({ error: null });
   }
