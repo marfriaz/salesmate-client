@@ -77,6 +77,10 @@ export default class HomePage extends Component {
     } else return "All Accounts";
   }
 
+  handleSort(sortedList) {
+    this.setState({ accountList: sortedList });
+  }
+
   // onTextChange() {
   //   const { accountList } = this.state;
 
@@ -120,7 +124,10 @@ export default class HomePage extends Component {
 
             <div>
               <div className="Account_List_Nav">
-                <ListNav />
+                <ListNav
+                  accountList={accountList}
+                  handleSort={(sortedList) => this.handleSort(sortedList)}
+                />
               </div>
               <table id="customers">
                 <tr>

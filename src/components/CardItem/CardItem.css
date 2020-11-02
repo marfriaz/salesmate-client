@@ -15,12 +15,26 @@
 
 .AccountPage__card__item__value {
   display: flex;
+  width: 100%;
   flex: 1;
   flex-wrap: wrap;
 }
 
 .editButton {
+  /* display: none; */
   background-color: transparent;
-  /* color: blue; */
+  color: white;
   border: none;
+}
+
+.AccountPage__card__item__key:hover + .editButton {
+  color: black;
+}
+
+.AccountPage__card__item__value:hover + .editButton {
+  color: black;
+}
+
+.editButton:hover {
+  color: black;
 }

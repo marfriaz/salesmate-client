@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
 import SearchBox from "../SearchBox/SearchBox";
 import TokenService from "../../services/token-service";
+import Sorter from "../../components/Sorter/Sorter";
+
 import "./ListNav.css";
 
 export default class ListNav extends Component {
@@ -14,13 +16,13 @@ export default class ListNav extends Component {
 
   render() {
     return (
-      <nav className="Header">
-        <div className="Header_login">
-          <div className="Header__not-logged-in">
-            {/* <div>Filter goes here &nbsp; </div> */}
-            <Link to="/accounts/create">Create New Account &nbsp;</Link>
-          </div>
-        </div>
+      <nav className="Accounts_Nav">
+        <Sorter
+          accountList={this.props.accountList}
+          handleSort={(sortedList) => this.props.handleSort(sortedList)}
+        />
+        <Link to="/accounts/create">Create New Account &nbsp;</Link>
+        {/* </div> */}
       </nav>
     );
   }

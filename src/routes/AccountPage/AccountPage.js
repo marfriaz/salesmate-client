@@ -63,17 +63,18 @@ export default class AccountPage extends Component {
 
   renderAccountList(account) {
     return account.map((field, key) => (
-      <CardItem key={key} name={field.name} value={field.value} />
+      <CardItem
+        key={key}
+        name={field.name}
+        value={field.value}
+        handleModal={() => this.handleModal()}
+      />
     ));
   }
 
   renderAccountListAddress(accountInfo) {
     return accountInfo.map((field, key) => (
-      <CardItemAddress
-        key={key}
-        name={field.name}
-        value={field.address_value}
-      />
+      <CardItem key={key} name={field.name} value={field.address_value} />
     ));
   }
 
@@ -114,19 +115,29 @@ export default class AccountPage extends Component {
 
     const accountAddress = [
       {
-        name: "Billing",
-        address_value: [
-          {
-            addresss_section: "Street",
-            value: address.street,
-          },
-          { addresss_section: "City", value: address.city },
-          { addresss_section: "Zip Code", value: address.zip_code },
-          { addresss_section: "State", value: address.state },
-          { addresss_section: "Country", value: address.country },
-        ],
+        name: "Street",
+        value: [address.street],
       },
+      { name: "City", value: [address.city] },
+      { name: "Zip Code", value: [address.zip_code] },
+      { name: "State", value: [address.state] },
+      { name: "Country", value: [address.country] },
     ];
+    // const accountAddress = [
+    //   {
+    //     name: "Billing",
+    //     address_value: [
+    //       {
+    //         addresss_section: "Street",
+    //         value: address.street,
+    //       },
+    //       { addresss_section: "City", value: address.city },
+    //       { addresss_section: "Zip Code", value: address.zip_code },
+    //       { addresss_section: "State", value: address.state },
+    //       { addresss_section: "Country", value: address.country },
+    //     ],
+    //   },
+    // ];
     const { accountId } = this.props.match.params;
 
     return (
@@ -159,16 +170,16 @@ export default class AccountPage extends Component {
             <div className="AccountPage__card__header">Business Details</div>
             <div className="AccountPage__card__fields">
               {this.renderAccountList(businessDetails)}
-              {this.renderAccountListAddress(accountAddress)}
+              {/* {this.renderAccountListAddress(accountAddress)} */}
             </div>
           </div>
-          {/* 
+
           <div className="AccountPage__card">
             <div className="AccountPage__card__header">Address</div>
             <div className="AccountPage__card__fields">
-              {this.renderAccountListAddress(accountAddress)}
+              {this.renderAccountList(accountAddress)}
             </div>
-          </div> */}
+          </div>
 
           <Contacts accountId={accountId} />
           <Notes accountId={accountId} />
