@@ -54,9 +54,11 @@ export default class AccountPage extends Component {
   }
 
   handleDelete(accountId) {
-    AccountApiService.deleteAccount(accountId)
-      .then(() => this.history.push("/"))
-      .catch((err) => this.setState({ error: err }));
+    AccountApiService.deleteAccount(accountId).catch((err) =>
+      this.setState({ error: err })
+    );
+    this.props.history.push("/accounts");
+    window.location.reload();
   }
 
   renderAccountList(account) {
@@ -138,6 +140,8 @@ export default class AccountPage extends Component {
           <EditModal
             modalIsOpen={this.state.modalIsOpen}
             triggerModal={() => this.handleModal()}
+            account={this.state.account}
+            accountId={this.props.match.params.accountId}
           />
           <div className="AccountPage__buttons">
             <button onClick={() => this.handleModal()} className="button">
@@ -158,13 +162,13 @@ export default class AccountPage extends Component {
               {this.renderAccountListAddress(accountAddress)}
             </div>
           </div>
-
+          {/* 
           <div className="AccountPage__card">
             <div className="AccountPage__card__header">Address</div>
             <div className="AccountPage__card__fields">
               {this.renderAccountListAddress(accountAddress)}
             </div>
-          </div>
+          </div> */}
 
           <Contacts accountId={accountId} />
           <Notes accountId={accountId} />

@@ -1,107 +1,370 @@
 import React, { Component } from "react";
-import GymContext from "../../contexts/GymContext";
 import AccountApiService from "../../services/account-api-service";
-import { Section } from "../../components/Utils/Utils";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-
-import "./EditPage.css";
+const industries = require("../../components/STORE/industries");
 
 export default class EditPage extends Component {
-  // static defaultProps = {
-  //   match: { params: {} },
-  // };
+  static defaultProps = {
+    history: {
+      push: () => {},
+    },
+  };
 
-  // static contextType = GymContext;
+  state = {
+    error: null,
+    account: {},
+    address: {},
+  };
 
-  // componentDidMount() {
-  //   this.context.clearError();
-  //   const { gymId } = this.props.match.params;
+  componentDidMount() {
+    const { account, address } = this.props;
+    this.setState({
+      account: account,
+      address: address || account.address,
+    });
+  }
 
-  //   GymApiService.getGym(gymId)
-  //     .then(this.context.setGym)
-  //     .catch(this.context.setError);
-  // }
+  handleSubmit = (ev) => {
+    ev.preventDefault();
+    this.setState({ error: null });
+    AccountApiService.postAccount({
+      name: ev.target.account_name.value,
+      stage: ev.target.stage.value,
+      website: ev.target.website.value,
+      industry: ev.target.industry.value,
+      territory: ev.target.territory.value,
+      employee_range: ev.target.employee_range.value,
+      phone: ev.target.phone.value,
+      fax: ev.target.fax.value,
+      linkedin: ev.target.linkedin.value,
+      street: ev.target.street.value,
+      city: ev.target.city.value,
+      zip_code: ev.target.zip_code.value,
+      state: ev.target.state.value,
+      country: ev.target.country.value,
+    })
+      .then((data) => {
+        console.log(data);
+        this.props.history.push(`/accounts/${data.id}`);
+      })
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
+  };
 
-  // componentWillUnmount() {
-  //   this.context.clearGym();
-  // }
+  handleUpdateField(field, value) {
+    let updates = { ...this.state.account };
+    Object.assign(updates, {
+      [`${field}`]: value,
+    });
+    this.setState({ account: updates });
+    this.props.updateFields(this.state.account);
+  }
+
+  handleUpdateAddress(field, value) {
+    let updates = { ...this.state.address };
+    Object.assign(updates, {
+      [`${field}`]: value,
+    });
+    this.setState({ address: updates });
+    this.props.updateAddress(this.state.address);
+    console.log(this.state.address);
+  }
 
   render() {
+    const { error, account, address } = this.state;
+
+    const industryList = industries.map((item, index) => (
+      <option value={item}>{item}</option>
+    ));
+
     return (
       <>
         <div className="AccountPage">
-          <form className="HostGymForm" onSubmit={this.handleSubmit}>
-            <div className="AccountPage__header">
-              <div className="Account__photo">
-                {" "}
-                <img
-                  className=""
-                  alt="Listed Gym"
-                  src="https://s3-media0.fl.yelpcdn.com/bphoto/LYJeIsAfm_BZ5PPmRD9JtA/l.jpg"
-                  width="100px"
-                />
-              </div>
-              <div className="Account__name">
-                <h1>Robledo Family Winery</h1>
+          <form className="CreateAccountForm" onSubmit={this.handleSubmit}>
+            <div role="alert">{error && <p className="red">{error}</p>}</div>
+            <div className="AccountPage__card">
+              <div className="AccountPage__card__header">Business Details</div>
+              <div className="AccountPage__card__fields">
+                <div className="AccountPage__card__item">
+                  <label
+                    htmlFor="Create_account_name"
+                    className="AccountPage__card__item__key"
+                  >
+                    Account Name:
+                  </label>
+                  <input
+                    name="account_name"
+                    type="text"
+                    required
+                    id="Create_account_name"
+                    value={account.name}
+                    onChange={(ev) =>
+                      this.handleUpdateField("name", ev.target.value)
+                    }
+                  ></input>
+                </div>
+
+                <div className="AccountPage__card__item">
+                  <label
+                    htmlFor="Create_stage"
+                    className="AccountPage__card__item__key"
+                  >
+                    Stage:
+                  </label>
+                  <select
+                    type="text"
+                    name="stage"
+                    id="Create_stage"
+                    required
+                    value={account.stage}
+                    onChange={(ev) =>
+                      this.handleUpdateField("stage", ev.target.value)
+                    }
+                  >
+                    <option value="Lead">Lead</option>
+                    <option value="Sold">Sold</option>
+                    <option value="not-interested">Not Interested</option>
+                  </select>
+                </div>
+
+                <div className="AccountPage__card__item">
+                  <label
+                    htmlFor="Create_website"
+                    className="AccountPage__card__item__key"
+                  >
+                    Website:
+                  </label>
+                  <input
+                    name="website"
+                    type="text"
+                    required
+                    id="Create_website"
+                    value={account.website}
+                    onChange={(ev) =>
+                      this.handleUpdateField("website", ev.target.value)
+                    }
+                  ></input>
+                </div>
+
+                <div className="AccountPage__card__item">
+                  <label
+                    htmlFor="Create_industry"
+                    className="AccountPage__card__item__key"
+                  >
+                    Industry:
+                  </label>
+                  <select
+                    type="text"
+                    name="industry"
+                    id="Create_industry"
+                    required
+                    value={account.industry}
+                    onChange={(ev) =>
+                      this.handleUpdateField("industry", ev.target.value)
+                    }
+                  >
+                    {industryList}
+                  </select>
+                </div>
+
+                <div className="AccountPage__card__item">
+                  <label
+                    htmlFor="Create_territory"
+                    className="AccountPage__card__item__key"
+                  >
+                    Territory:
+                  </label>
+                  <select
+                    type="text"
+                    name="territory"
+                    id="Create_industry"
+                    required
+                    value={account.territory}
+                    onChange={(ev) =>
+                      this.handleUpdateField("territory", ev.target.value)
+                    }
+                  >
+                    <option value="NAMER">NAMER</option>
+                    <option value="EMEA">EMEA</option>
+                    <option value="LATAM">LATAM</option>
+                  </select>
+                </div>
+
+                <div className="AccountPage__card__item">
+                  <label
+                    htmlFor="Create_employee_range"
+                    className="AccountPage__card__item__key"
+                  >
+                    Employee Range:
+                  </label>
+                  <select
+                    type="text"
+                    name="employee_range"
+                    id="Create_employee_range"
+                    required
+                    value={account.employee_range}
+                    onChange={(ev) =>
+                      this.handleUpdateField("employee_range", ev.target.value)
+                    }
+                  >
+                    <option value="Self-Employed">Self Employed</option>
+                    <option value="1-10">1-10</option>
+                    <option value="11-50">11-50</option>
+                    <option value="51-200">51-200</option>
+                    <option value="201-500">201-500</option>
+                    <option value="501-1000">501-1000</option>
+                    <option value="1001-5000">1001-5000</option>
+                    <option value="5001-10,000">5001-10,000</option>
+                    <option value="10,001+">10,001+</option>
+                  </select>
+                </div>
+
+                <div className="AccountPage__card__item">
+                  <label
+                    htmlFor="Create_phone"
+                    className="AccountPage__card__item__key"
+                  >
+                    Phone:
+                  </label>
+                  <input
+                    name="phone"
+                    type="text"
+                    required
+                    id="Create_phone"
+                    value={account.phone}
+                    onChange={(ev) =>
+                      this.handleUpdateField("phone", ev.target.value)
+                    }
+                  ></input>
+                </div>
+
+                <div className="AccountPage__card__item">
+                  <label
+                    htmlFor="Create_fax"
+                    className="AccountPage__card__item__key"
+                  >
+                    Fax:
+                  </label>
+                  <input
+                    name="fax"
+                    type="text"
+                    id="Create_fax"
+                    value={account.fax}
+                    onChange={(ev) =>
+                      this.handleUpdateField("fax", ev.target.value)
+                    }
+                  ></input>
+                </div>
+
+                <div className="AccountPage__card__item">
+                  <label
+                    htmlFor="Create_linkedin"
+                    className="AccountPage__card__item__key"
+                  >
+                    Linkedin:
+                  </label>
+                  <input
+                    name="linkedin"
+                    type="text"
+                    id="Create_linkedin"
+                    value={account.linkedin}
+                    onChange={(ev) =>
+                      this.handleUpdateField("linkedin", ev.target.value)
+                    }
+                  ></input>
+                </div>
               </div>
             </div>
-            <div className="AccountPage__buttons">
-              <button className="Account__lead">Mark As Lead</button>
-              <button className="Account__not_interested">
-                Mark as Not Interested
-              </button>
-              <button className="Account__sold">Mark as SOLD</button>
-            </div>
-            <div className="AccountPage__contact">
-              <div className="Account__contact__header">Contact Info</div>
-              <div className="Account__contact__content">
-                <div className="Account__website">
-                  Website: <input />
+
+            <div className="AccountPage__card">
+              <div className="AccountPage__card__header">Address</div>
+              <div className="AccountPage__card__fields">
+                <div className="AccountPage__card__item">
+                  <label
+                    htmlFor="Create_street"
+                    className="AccountPage__card__item__key"
+                  >
+                    Street:
+                  </label>
+                  <input
+                    name="street"
+                    type="text"
+                    id="Create_street"
+                    value={address.street}
+                    onChange={(ev) =>
+                      this.handleUpdateAddress("street", ev.target.value)
+                    }
+                  ></input>
                 </div>
-                <div className="Account__phone">
-                  Phone:
-                  <input />
+                <div className="AccountPage__card__item">
+                  <label
+                    htmlFor="Create_city"
+                    className="AccountPage__card__item__key"
+                  >
+                    City:
+                  </label>
+                  <input
+                    name="city"
+                    type="text"
+                    id="Create_city"
+                    value={address.city}
+                    onChange={(ev) =>
+                      this.handleUpdateAddress("city", ev.target.value)
+                    }
+                  ></input>
                 </div>
-                <div className="Account__address">
-                  Address:
-                  <input />
+                <div className="AccountPage__card__item">
+                  <label
+                    htmlFor="Create_zip_code"
+                    className="AccountPage__card__item__key"
+                  >
+                    Zip Code:
+                  </label>
+                  <input
+                    name="zip_code"
+                    type="text"
+                    id="Create_zip_code"
+                    value={address.zip_code}
+                    onChange={(ev) =>
+                      this.handleUpdateAddress("zip_code", ev.target.value)
+                    }
+                  ></input>
                 </div>
-              </div>
-            </div>
-            <div className="AccountPage__insights">
-              <div className="Account__insights__header">Insights</div>
-              <div className="Account__insights__content">
-                <div className="Account__categories">
-                  Categories:
-                  <input />
+                <div className="AccountPage__card__item">
+                  <label
+                    htmlFor="Create_state"
+                    className="AccountPage__card__item__key"
+                  >
+                    State:
+                  </label>
+                  <input
+                    name="state"
+                    type="text"
+                    id="Create_state"
+                    value={address.state}
+                    onChange={(ev) =>
+                      this.handleUpdateAddress("state", ev.target.value)
+                    }
+                  ></input>
                 </div>
-                <div className="Account__reviewcount">
-                  Review Count:
-                  <input />
+                <div className="AccountPage__card__item">
+                  <label
+                    htmlFor="Create_country"
+                    className="AccountPage__card__item__key"
+                  >
+                    Country:
+                  </label>
+                  <input
+                    name="country"
+                    type="text"
+                    required
+                    id="Create_country"
+                    value={address.country}
+                    onChange={(ev) =>
+                      this.handleUpdateAddress("country", ev.target.value)
+                    }
+                  ></input>
                 </div>
-                <div className="Account__rating">
-                  Rating:
-                  <input />
-                </div>
-                <div className="Account__price">
-                  Yelp Price:
-                  <input />
-                </div>
-              </div>
-            </div>
-            <div className="AccountPage__notes">
-              <div className="Account__notes__header">Notes</div>
-              <div className="Account__insights__content">
-                <div className="Account__website">
-                  Date:
-                  <input />
-                </div>
-                <div className="Account__phone">
-                  Note:
-                  <textarea rows="2" cols="20"></textarea>
-                </div>
-                <button>Add</button>
               </div>
             </div>
           </form>
