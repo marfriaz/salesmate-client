@@ -97,21 +97,6 @@ export default class AccountPage extends Component {
       { name: "Fax", value: [account.fax] },
       { name: "LinkedIn", value: [account.linkedin] },
     ];
-    // const accountAddress = [
-    //   {
-    //     name: "Billing",
-    //     address_value: [
-    //       {
-    //         addresss_section: "Street",
-    //         value: address.street,
-    //       },
-    //       { addresss_section: "City", value: address.city },
-    //       { addresss_section: "Zip Code", value: address.zip_code },
-    //       { addresss_section: "State", value: address.state },
-    //       { addresss_section: "Country", value: address.country },
-    //     ],
-    //   },
-    // ];
 
     const accountAddress = [
       {
@@ -123,21 +108,7 @@ export default class AccountPage extends Component {
       { name: "State", value: [address.state] },
       { name: "Country", value: [address.country] },
     ];
-    // const accountAddress = [
-    //   {
-    //     name: "Billing",
-    //     address_value: [
-    //       {
-    //         addresss_section: "Street",
-    //         value: address.street,
-    //       },
-    //       { addresss_section: "City", value: address.city },
-    //       { addresss_section: "Zip Code", value: address.zip_code },
-    //       { addresss_section: "State", value: address.state },
-    //       { addresss_section: "Country", value: address.country },
-    //     ],
-    //   },
-    // ];
+
     const { accountId } = this.props.match.params;
 
     return (
