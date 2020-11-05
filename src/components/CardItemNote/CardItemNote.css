@@ -1,0 +1,44 @@
+.AccountPage__card__item__note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px #cdcfd2 solid;
+  padding: 4px 2%;
+  min-height: 28px;
+}
+
+.AccountPage__card__item__note__key {
+  display: flex;
+  margin-right: 30px;
+}
+
+.AccountPage__card__item__note__value {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.editNoteButton,
+.deleteNoteButton {
+  /* display: none; */
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+.AccountPage__card__item__note__key:hover + .editNoteButton {
+  color: black;
+}
+
+.AccountPage__card__item__note__value:hover
+  + .editNoteButton
+  + .deleteNoteButton {
+  color: black;
+}
+
+.editNoteButton:hover,
+.deleteNoteButton:hover {
+  color: black;
+}
