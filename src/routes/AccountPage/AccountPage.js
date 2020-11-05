@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
 import CardItem from "../../components/CardItem/CardItem";
-import CardItemAddress from "../../components/CardItemAddress/CardItemAddress";
 import Notes from "../../components/Notes/Notes";
 import Contacts from "../../components/Contacts/Contacts";
-import EditModal from "../../components/EditModal/EditModal";
-
+import Address from "../../components/Address/Address";
+import AccountModal from "../../components/AccountModal/AccountModal";
 import "./AccountPage.css";
 
 export default class AccountPage extends Component {
@@ -83,8 +82,7 @@ export default class AccountPage extends Component {
   };
 
   render() {
-    // const { account, error } = this.props;
-    const { account, address, contacts, notes } = this.state;
+    const { account, address } = this.state;
 
     const businessDetails = [
       { name: "Account Name", value: [account.name] },
@@ -98,19 +96,7 @@ export default class AccountPage extends Component {
       { name: "LinkedIn", value: [account.linkedin] },
     ];
 
-    const accountAddress = [
-      {
-        name: "Street",
-        value: [address.street],
-      },
-      { name: "City", value: [address.city] },
-      { name: "Zip Code", value: [address.zip_code] },
-      { name: "State", value: [address.state] },
-      { name: "Country", value: [address.country] },
-    ];
-
     const { accountId } = this.props.match.params;
-
     return (
       <>
         <div className="AccountPage">
@@ -119,19 +105,22 @@ export default class AccountPage extends Component {
               <h1>{account.name}</h1>
             </div>
           </div>
-          <EditModal
+          <AccountModal
             modalIsOpen={this.state.modalIsOpen}
             triggerModal={() => this.handleModal()}
             account={this.state.account}
             accountId={this.props.match.params.accountId}
           />
           <div className="AccountPage__buttons">
-            <button onClick={() => this.handleModal()} className="button">
+            <button
+              onClick={() => this.handleModal()}
+              className="button submitButton"
+            >
               Edit
             </button>
             <button
               onClick={() => this.handleDelete(accountId)}
-              className="button"
+              className="button submitButton"
             >
               Delete
             </button>
@@ -141,17 +130,10 @@ export default class AccountPage extends Component {
             <div className="AccountPage__card__header">Business Details</div>
             <div className="AccountPage__card__fields">
               {this.renderAccountList(businessDetails)}
-              {/* {this.renderAccountListAddress(accountAddress)} */}
             </div>
           </div>
 
-          <div className="AccountPage__card">
-            <div className="AccountPage__card__header">Address</div>
-            <div className="AccountPage__card__fields">
-              {this.renderAccountList(accountAddress)}
-            </div>
-          </div>
-
+          <Address accountId={accountId} />
           <Contacts accountId={accountId} />
           <Notes accountId={accountId} />
         </div>

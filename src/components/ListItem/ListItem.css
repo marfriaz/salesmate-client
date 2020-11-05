@@ -13,3 +13,8 @@
   display: flex;
   flex-direction: row;
 }
+
+.ListItem_name {
+  text-decoration: none;
+  color: black;
+}

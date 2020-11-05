@@ -28,3 +28,31 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.submitButton {
+  font-size: 14px;
+  font-weight: 450;
+  padding: 3px 9px;
+  background-color: transparent;
+  color: #009edb;
+  border: 2px solid #009edb;
+  border-radius: 2px;
+}
+
+@media (min-width: 800px) {
+  .submitButton {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .submitButton {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 2500px) {
+  .submitButton {
+    font-size: 25px;
+  }
+}

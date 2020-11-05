@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import GymListContext from "../../contexts/GymListContext";
 import AccountApiService from "../../services/account-api-service";
 import TypeAheadDropDown from "../../components/TypeAheadDropDown/TypeAheadDropDown";
 
@@ -42,26 +39,8 @@ class SearchBox extends Component {
   render() {
     return (
       <div className="SearchBox_container">
-        <label htmlFor="searchBox">Search: </label>
+        <label htmlFor="searchBox">Search:&nbsp;&nbsp;</label>
         <TypeAheadDropDown />
-        {/* <form
-          className="SearchBox_form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            this.handleSubmit(e.target.searchBox.value);
-          }}
-        >
-          <label htmlFor="searchBox">Search:</label>
-          <input
-            type="text"
-            name="searchBox"
-            id="searchBox"
-            placeholder="Account name"
-          />
-          <button type="submit" className="searchButton">
-            <FontAwesomeIcon icon={faSearch} />
-          </button>
-        </form> */}
       </div>
     );
   }

@@ -27,9 +27,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav className="Header">
-        <div className="name">
-          <SearchBox />
-        </div>
+        <SearchBox />
 
         <div className="Header_login">
           <div className="Header__not-logged-in">

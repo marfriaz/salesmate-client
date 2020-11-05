@@ -12,7 +12,10 @@ export default class ListItem extends Component {
     return (
       <tr List_Item>
         <td>
-          <Link to={`/accounts/${account.id}`}>{account.name}</Link> &nbsp;
+          <Link to={`/accounts/${account.id}`}>
+            <span className="ListItem_name"> {account.name}</span>
+          </Link>
+          &nbsp;
         </td>
         <td>{account.stage} &nbsp;</td>
         <td>{account.industry} &nbsp;</td>

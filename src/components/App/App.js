@@ -9,7 +9,7 @@ import HomePage from "../../routes/HomePage/HomePage";
 import LoginPage from "../../routes/LoginPage/LoginPage";
 import SignUpPage from "../../routes/SignUpPage/SignUpPage";
 import AccountPage from "../../routes/AccountPage/AccountPage";
-import AccountForm from "../../routes/AccountForm/AccountForm";
+import AccountForm from "../../components/AccountForm/AccountForm";
 import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
 import CreatePage from "../../routes/CreatePage/CreatePage";
 import "./App.css";

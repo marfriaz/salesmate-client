@@ -6,6 +6,10 @@
   align-items: center;
   justify-content: space-between;
 }
+.cloudIcon,
+.logo {
+  color: #009edb;
+}
 
 .Header h1 {
   margin: 0;

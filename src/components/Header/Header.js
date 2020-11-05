@@ -35,8 +35,8 @@ export default class Header extends Component {
       <nav className="Header">
         <h1>
           <Link to="/" className="Header_title">
-            <FontAwesomeIcon className="Dumbbell_icon" icon={faCloud} />{" "}
-            <span className="logo">SalesMate</span>
+            <FontAwesomeIcon className="cloudIcon" icon={faCloud} />
+            <span className="logo"> SalesMate</span>
           </Link>
         </h1>
         <div className="Header_login">
