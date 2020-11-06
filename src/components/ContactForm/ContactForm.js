@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
 
-import { Button, Input, Required } from "../Utils/Utils";
+import { Required } from "../Utils/Utils";
 
 export default class ContactForm extends Component {
   constructor(props) {
@@ -84,23 +84,7 @@ export default class ContactForm extends Component {
               }
             />
           </div>
-          <div className="AccountPage__card__item">
-            <label
-              htmlFor="Create_contact_title"
-              className="AccountPage__card__item__key"
-            >
-              Email:
-            </label>
-            <input
-              name="email"
-              id="Create_contact_title"
-              className="AccountPage__card__item__value"
-              value={contact.email}
-              onChange={(ev) =>
-                this.handleUpdateField("email", ev.target.value)
-              }
-            />
-          </div>
+
           <div className="AccountPage__card__item">
             <label
               htmlFor="Create_contact_title"
@@ -117,6 +101,23 @@ export default class ContactForm extends Component {
               value={contact.phone}
               onChange={(ev) =>
                 this.handleUpdateField("phone", ev.target.value)
+              }
+            />
+          </div>
+          <div className="AccountPage__card__item">
+            <label
+              htmlFor="Create_contact_title"
+              className="AccountPage__card__item__key"
+            >
+              Email:
+            </label>
+            <input
+              name="email"
+              id="Create_contact_title"
+              className="AccountPage__card__item__value"
+              value={contact.email}
+              onChange={(ev) =>
+                this.handleUpdateField("email", ev.target.value)
               }
             />
           </div>

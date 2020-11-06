@@ -31,7 +31,7 @@ export default class AddressForm extends Component {
       [`${field}`]: value,
     });
     this.setState({ address: updates });
-    this.props.updateAddress(this.state.address);
+    this.props.updateAddress(updates);
   }
 
   render() {
