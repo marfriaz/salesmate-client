@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
 import TypeAheadDropDown from "../../components/TypeAheadDropDown/TypeAheadDropDown";
-
 import "./SearchBox.css";
 
 class SearchBox extends Component {

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
+
 import CreateForm from "../../components/CreateForm/CreateForm";
 
 export default class AccountPage extends Component {
@@ -30,7 +31,7 @@ export default class AccountPage extends Component {
     this.setState({ error: null });
     const { account, address } = this.state;
     let updates = { ...account, ...address };
-    console.log(updates);
+
     AccountApiService.postAccount({
       name: updates.name,
       stage: updates.stage,
@@ -48,7 +49,6 @@ export default class AccountPage extends Component {
       country: updates.country,
     })
       .then((data) => {
-        console.log(data);
         this.props.history.push(`/accounts/${data.id}`);
       })
       .catch((res) => {
@@ -70,8 +70,6 @@ export default class AccountPage extends Component {
 
   render() {
     const { error, account, address } = this.state;
-    console.log(account);
-    console.log(address);
 
     return (
       <>

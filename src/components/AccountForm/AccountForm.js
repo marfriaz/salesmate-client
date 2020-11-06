@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Required } from "../Utils/Utils";
-import AccountApiService from "../../services/account-api-service";
 const industries = require("../../components/STORE/industries");
 
 export default class AccountForm extends Component {
@@ -154,7 +153,7 @@ export default class AccountForm extends Component {
                   <select
                     type="text"
                     name="territory"
-                    id="Create_industry"
+                    id="Create_territory"
                     required
                     value={account.territory}
                     onChange={(ev) =>

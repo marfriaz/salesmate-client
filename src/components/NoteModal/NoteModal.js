@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
+
 import NoteForm from "../NoteForm/NoteForm";
 import Modal from "react-modal";
 import "./NoteModal.css";

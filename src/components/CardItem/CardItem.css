@@ -10,6 +10,7 @@
 
 .AccountPage__card__item__key {
   display: flex;
+  flex-wrap: wrap;
   flex: 1;
 }
 
@@ -17,7 +18,8 @@
   display: flex;
   width: 100%;
   flex: 1;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  word-wrap: break-word;
 }
 
 .editButton {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
 import { Required } from "../Utils/Utils";
+import "./NoteForm.css";
 
 export default class NoteForm extends Component {
   constructor(props) {
@@ -53,18 +54,17 @@ export default class NoteForm extends Component {
           className="createNotesForm AccountPage__card__fields"
           onSubmit={(ev) => this.props.handleSubmit(ev, this.props.noteId)}
         >
-          <div className="AccountPage__card__item">
-            <label
-              htmlFor="Create_note_text"
-              className="AccountPage__card__item__key"
-            >
+          <div className="Note__card__item">
+            <label htmlFor="Create_note_text" className="Note__card__item__key">
               Note:
             </label>
             <Required />
-            <input
+            <textarea
               name="text"
               id="Create_note_text"
-              className="AccountPage__card__item__value"
+              className="Note__card__item__value"
+              rows="3"
+              cols="40"
               value={note.text}
               onChange={(ev) => this.updateText(ev.target.value)}
             />

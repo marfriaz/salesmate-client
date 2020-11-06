@@ -61,7 +61,9 @@ export default class HomePage extends Component {
   }
 
   renderAccountList(accountList) {
-    return accountList.map((account) => <ListItem account={account} />);
+    return accountList.map((account, index) => (
+      <ListItem account={account} key={index} />
+    ));
   }
 
   renderHeader() {
@@ -77,40 +79,8 @@ export default class HomePage extends Component {
     this.setState({ accountList: sortedList });
   }
 
-  // onTextChange() {
-  //   const { accountList } = this.state;
-
-  //   const sortedAccounts = accountList
-  //     .map((account) => [account.name, account.id])
-  //     .sort(function (a, b) {
-  //       if (a[0] < b[0]) return -1;
-  //       if (a[0] > b[0]) return 1;
-  //       return 0;
-  //     });
-
-  //   let suggestions = [];
-  //   const value = "Wal";
-
-  //   if (value.length > 0) {
-  //     const regex = new RegExp(`^${value}`, `i`);
-
-  //     suggestions = sortedAccounts.filter((v) => regex.test(v[0]));
-  //   }
-
-  //   console.log(suggestions);
-  // }
-
   render() {
     const { accountList, error } = this.state;
-    // console.log(
-    //   accountList
-    //     .map((account) => [account.name, account.id])
-    //     .sort(function (a, b) {
-    //       if (a[0] < b[0]) return -1;
-    //       if (a[0] > b[0]) return 1;
-    //       return 0;
-    //     })
-    // );
 
     return (
       <>
@@ -126,17 +96,20 @@ export default class HomePage extends Component {
               />
             </div>
             <table id="customers">
-              <tr>
-                <th>Account Name</th>
-                <th>Stage</th>
-                <th>Industry</th>
-                <th>Territory</th>
-              </tr>
-              {error ? (
-                <p className="red">There was an error, try again</p>
-              ) : (
-                this.renderAccountList(accountList)
-              )}
+              <tbody>
+                <tr>
+                  <th>Account Name</th>
+                  <th>Stage</th>
+                  <th>Industry</th>
+                  <th>Territory</th>
+                </tr>
+
+                {error ? (
+                  <p className="red">There was an error, try again</p>
+                ) : (
+                  this.renderAccountList(accountList)
+                )}
+              </tbody>
             </table>
           </div>
         </section>

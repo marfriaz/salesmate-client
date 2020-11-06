@@ -18,7 +18,6 @@ class App extends Component {
   state = { hasError: false };
 
   static getDerivedStateFromError(error) {
-    console.error(error);
     return { hasError: true };
   }
 
@@ -52,24 +51,10 @@ class App extends Component {
               component={HomePage}
             />
             <PrivateRoute
-              exact
-              path={"/accounts/create"}
-              render={(routeProps) => <CreatePage {...routeProps} />}
-            />
-
-            <PrivateRoute
               path={"/accounts/:accountId"}
-              render={(routeProps) => {
-                return <AccountPage {...routeProps} />;
-              }}
+              component={AccountPage}
             />
-            <Route
-              path={"/accounts"}
-              render={(routeProps) => {
-                return <HomePage {...routeProps} />;
-              }}
-            />
-
+            <PrivateRoute path={"/accounts"} component={HomePage} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>

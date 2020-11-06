@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./Sorter.css";
 
 class Sorter extends Component {
@@ -26,14 +24,13 @@ class Sorter extends Component {
             name="searchBox"
             id="searchBox"
             placeholder="Search"
+            defaultValue={"DEFAULT"}
             onChange={(e) => {
               e.preventDefault();
               this.handleChange(e.target.value);
             }}
           >
-            <option value="" disabled selected>
-              Select option
-            </option>
+            <option value="DEFAULT">Select option</option>
             <option value="name">Account Name: A-Z</option>
             <option value="stage">Stage: A-Z</option>
             <option value="industry">Industry: A-Z</option>

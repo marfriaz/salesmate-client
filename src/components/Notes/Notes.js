@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
+
 import CardItemNote from "../CardItemNote/CardItemNote";
 import NoteModal from "../../components/NoteModal/NoteModal";
 

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Button, Input, Required } from "../Utils/Utils";
 
-import AccountApiService from "../../services/account-api-service";
 const industries = require("../../components/STORE/industries");
 
 export default class AccountForm extends Component {
@@ -44,7 +43,6 @@ export default class AccountForm extends Component {
     });
     this.setState({ address: updates });
     this.props.updateAddress(this.state.address);
-    console.log(this.state.address);
   }
 
   render() {
@@ -155,7 +153,7 @@ export default class AccountForm extends Component {
                   <select
                     type="text"
                     name="territory"
-                    id="Create_industry"
+                    id="Create_territory"
                     required
                     value={account.territory}
                     onChange={(ev) =>

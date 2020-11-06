@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AccountApiService from "../../services/account-api-service";
+
 const industries = require("../STORE/industries");
 
 export default class AddressForm extends Component {
@@ -19,7 +19,7 @@ export default class AddressForm extends Component {
 
   componentDidMount() {
     const { address } = this.props;
-    console.log("YO", address);
+
     this.setState({
       address: address,
     });
