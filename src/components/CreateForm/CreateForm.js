@@ -65,9 +65,8 @@ export default class AccountForm extends Component {
                     htmlFor="Create_account_name"
                     className="AccountPage__card__item__key"
                   >
-                    Account Name:
+                    Account Name: <Required />
                   </label>
-                  <Required />
                   <input
                     name="account_name"
                     type="text"
@@ -107,9 +106,8 @@ export default class AccountForm extends Component {
                     htmlFor="Create_website"
                     className="AccountPage__card__item__key"
                   >
-                    Website:
+                    Website: <Required />
                   </label>
-                  <Required />
                   <input
                     name="website"
                     type="text"
@@ -200,9 +198,8 @@ export default class AccountForm extends Component {
                     htmlFor="Create_phone"
                     className="AccountPage__card__item__key"
                   >
-                    Phone:
+                    Phone: <Required />
                   </label>
-                  <Required />
                   <input
                     name="phone"
                     type="text"
@@ -329,9 +326,8 @@ export default class AccountForm extends Component {
                     htmlFor="Create_country"
                     className="AccountPage__card__item__key"
                   >
-                    Country:
+                    Country: <Required />
                   </label>
-                  <Required />
                   <input
                     name="country"
                     type="text"

@@ -56,9 +56,8 @@ export default class NoteForm extends Component {
         >
           <div className="Note__card__item">
             <label htmlFor="Create_note_text" className="Note__card__item__key">
-              Note:
+              Note: <Required />
             </label>
-            <Required />
             <textarea
               name="text"
               id="Create_note_text"
@@ -70,7 +69,7 @@ export default class NoteForm extends Component {
             />
           </div>
 
-          <button className="button" type="submit">
+          <button className="button saveButton" type="submit">
             Save
           </button>
         </form>

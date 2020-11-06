@@ -21,9 +21,7 @@ export default class CardItemContact extends Component {
           </button>
         </div>
         <div className="AccountPage__card__item">
-          <div className="AccountPage__card__item__key">
-            Employee Title: &nbsp;
-          </div>
+          <div className="AccountPage__card__item__key">Employee Title:</div>
           <div className="AccountPage__card__item__value">{contact.title}</div>
           <button
             onClick={() => this.props.handleModal(contactId)}

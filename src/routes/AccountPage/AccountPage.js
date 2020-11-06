@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
+import { Section } from "../../components/Utils/Utils";
 import CardItem from "../../components/CardItem/CardItem";
 import Notes from "../../components/Notes/Notes";
 import Contacts from "../../components/Contacts/Contacts";
@@ -99,7 +100,7 @@ export default class AccountPage extends Component {
     const { accountId } = this.props.match.params;
     return (
       <>
-        <div className="AccountPage">
+        <Section className="AccountPage">
           <div className="AccountPage__header">
             <div className="Account__name">
               <h1>{account.name}</h1>
@@ -137,7 +138,7 @@ export default class AccountPage extends Component {
           <Address accountId={accountId} />
           <Contacts accountId={accountId} />
           <Notes accountId={accountId} />
-        </div>
+        </Section>
       </>
     );
   }

@@ -57,9 +57,8 @@ export default class ContactForm extends Component {
               htmlFor="Create_contact_name"
               className="AccountPage__card__item__key"
             >
-              Name:
+              Name: <Required />
             </label>
-            <Required />
             <input
               name="name"
               id="Create_contact_name"
@@ -108,8 +107,9 @@ export default class ContactForm extends Component {
               className="AccountPage__card__item__key"
             >
               Phone:
+              <Required />
             </label>
-            <Required />
+
             <input
               name="phone"
               id="Create_contact_title"
@@ -120,7 +120,7 @@ export default class ContactForm extends Component {
               }
             />
           </div>
-          <button className="button" type="submit">
+          <button className="button saveButton" type="submit">
             Save
           </button>
         </form>

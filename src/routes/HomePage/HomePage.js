@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
+import { Section } from "../../components/Utils/Utils";
 import ListNav from "../../components/ListNav/ListNav";
 import ListItem from "../../components/ListItem/ListItem";
 import "./HomePage.css";
@@ -84,7 +85,7 @@ export default class HomePage extends Component {
 
     return (
       <>
-        <section className="HomePage">
+        <Section className="HomePage">
           <div className="HomePage__Header">
             <h2>{this.renderHeader()}</h2>
           </div>
@@ -112,7 +113,7 @@ export default class HomePage extends Component {
               </tbody>
             </table>
           </div>
-        </section>
+        </Section>
       </>
     );
   }

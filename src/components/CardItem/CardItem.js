@@ -15,7 +15,7 @@ export default class CardItem extends Component {
     const { name, value } = this.props;
     return (
       <div className="AccountPage__card__item">
-        <div className="AccountPage__card__item__key">{name}: &nbsp;</div>
+        <div className="AccountPage__card__item__key">{name}:</div>
         <div className="AccountPage__card__item__value">{value}</div>
         <button onClick={() => this.props.handleModal()} className="editButton">
           <FontAwesomeIcon icon={faPencilAlt} />
