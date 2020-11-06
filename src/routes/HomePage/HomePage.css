@@ -6,6 +6,11 @@
   align-items: center;
 }
 
+.HomePage__Header {
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;

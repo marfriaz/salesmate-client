@@ -67,7 +67,7 @@ export default class SignUpForm extends Component {
               id="SignUpForm"
             ></Input>
           </div>
-          <div>What will you be selling?</div>
+
           <div className="email">
             <label className="Form_Label" htmlFor="SignUpForm__email">
               Email <Required />

@@ -146,10 +146,7 @@ export default class Notes extends Component {
             {this.renderAccountNotes(notes)}
           </div>
           {this.renderCreateNotes()}
-          <button
-            className="submitButton"
-            onClick={() => this.renderAddNotes()}
-          >
+          <button className="button" onClick={() => this.renderAddNotes()}>
             Add Note
           </button>
         </div>

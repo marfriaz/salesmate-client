@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import GymListContext from "../../contexts/GymListContext";
 import AccountApiService from "../../services/account-api-service";
-import { Section } from "../../components/Utils/Utils";
-import Header from "../../components/Header/Header";
-import NavBar from "../../components/NavBar/NavBar";
 import ListNav from "../../components/ListNav/ListNav";
 import ListItem from "../../components/ListItem/ListItem";
 import "./HomePage.css";
@@ -119,30 +115,29 @@ export default class HomePage extends Component {
     return (
       <>
         <section className="HomePage">
+          <div className="HomePage__Header">
+            <h2>{this.renderHeader()}</h2>
+          </div>
           <div>
-            <div>{this.renderHeader()}</div>
-
-            <div>
-              <div className="Account_List_Nav">
-                <ListNav
-                  accountList={accountList}
-                  handleSort={(sortedList) => this.handleSort(sortedList)}
-                />
-              </div>
-              <table id="customers">
-                <tr>
-                  <th>Account Name</th>
-                  <th>Stage</th>
-                  <th>Industry</th>
-                  <th>Territory</th>
-                </tr>
-                {error ? (
-                  <p className="red">There was an error, try again</p>
-                ) : (
-                  this.renderAccountList(accountList)
-                )}
-              </table>
+            <div className="Account_List_Nav">
+              <ListNav
+                accountList={accountList}
+                handleSort={(sortedList) => this.handleSort(sortedList)}
+              />
             </div>
+            <table id="customers">
+              <tr>
+                <th>Account Name</th>
+                <th>Stage</th>
+                <th>Industry</th>
+                <th>Territory</th>
+              </tr>
+              {error ? (
+                <p className="red">There was an error, try again</p>
+              ) : (
+                this.renderAccountList(accountList)
+              )}
+            </table>
           </div>
         </section>
       </>

@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
-import SearchBox from "../SearchBox/SearchBox";
 import TokenService from "../../services/token-service";
 import Sorter from "../../components/Sorter/Sorter";
 
@@ -21,8 +18,9 @@ export default class ListNav extends Component {
           accountList={this.props.accountList}
           handleSort={(sortedList) => this.props.handleSort(sortedList)}
         />
-        <Link to="/accounts/create">Create New Account &nbsp;</Link>
-        {/* </div> */}
+        <Link to="/accounts/create">
+          <button className="button">Create New Account </button>
+        </Link>
       </nav>
     );
   }

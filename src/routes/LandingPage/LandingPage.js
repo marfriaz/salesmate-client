@@ -22,10 +22,14 @@ export default class LandingPage extends Component {
       <>
         <Section className="LandingPage">
           <div>
-            <div className="logo">SalesMate</div>
-            <div>
-              a better Customer Relationship Management platform for selling
-              your products and services
+            {/* <div className="logo">SalesMate</div> */}
+            <div className="banner">
+              <div className="description">
+                <h1>
+                  A better Customer Relationship Management platform for selling
+                  your products and services
+                </h1>
+              </div>
             </div>
           </div>
           <Description />

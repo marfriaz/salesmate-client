@@ -64,6 +64,10 @@ export default class AccountPage extends Component {
     this.setState({ address: value });
   }
 
+  handleClick(e) {
+    this.props.history.push("/accounts/");
+  }
+
   render() {
     const { error, account, address } = this.state;
     console.log(account);
@@ -77,7 +81,13 @@ export default class AccountPage extends Component {
           updateFields={(value) => this.handleUpdateField(value)}
           updateAddress={(value) => this.handleUpdateAddress(value)}
         />
-        <button onClick={(ev) => this.handleSubmit(ev)}>Save</button>
+        <button className="button" onClick={(event) => this.handleClick(event)}>
+          Cancel
+        </button>
+        &nbsp;
+        <button className="button" onClick={(ev) => this.handleSubmit(ev)}>
+          Save
+        </button>
       </>
     );
   }

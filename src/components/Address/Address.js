@@ -89,7 +89,6 @@ export default class Address extends Component {
     ];
 
     const { accountId } = this.props;
-    console.log("HEY", accountId);
     return (
       <>
         <AddressModal

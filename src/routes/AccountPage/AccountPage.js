@@ -118,6 +118,7 @@ export default class AccountPage extends Component {
             >
               Edit
             </button>
+            &nbsp;
             <button
               onClick={() => this.handleDelete(accountId)}
               className="button submitButton"

@@ -38,3 +38,7 @@
 .editButton:hover {
   color: black;
 }
+
+button:focus {
+  outline: 0;
+}

@@ -118,7 +118,6 @@ export default class Contacts extends Component {
     );
 
     this.setState({ createContacts: createContactsArr });
-    console.log(this.state.createContacts);
   }
 
   handleSubmit = (ev, contactId) => {
@@ -155,10 +154,7 @@ export default class Contacts extends Component {
             {this.renderAccountContacts(contacts)}
           </div>
           {this.renderCreateContacts()}
-          <button
-            className="submitButton"
-            onClick={() => this.renderAddContacts()}
-          >
+          <button className="button" onClick={() => this.renderAddContacts()}>
             Add Contact
           </button>
         </div>

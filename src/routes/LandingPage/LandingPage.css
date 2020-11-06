@@ -1,0 +1,99 @@
+.LandingPage {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: url(https://live.staticflickr.com/65535/50570672703_622e47b241_z.jpg)
+    no-repeat;
+  background-size: cover;
+  height: 400px;
+  width: 100%;
+}
+
+.description {
+  /* padding: 40px 90px 40px 90px; */
+  width: 80%;
+  color: white;
+}
+
+h1 {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+@media (min-width: 450px) {
+  .banner {
+    height: 300px;
+  }
+}
+
+@media (min-width: 650px) {
+  .banner {
+    background: url(https://live.staticflickr.com/65535/50571486832_9123686bd3_b.jpg)
+      no-repeat;
+    height: 400px;
+  }
+
+  .description {
+    width: 50%;
+    padding-left: 3%;
+  }
+
+  .SearchBar__heading {
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 750px) {
+  /* .banner {
+    height: 450px;
+  } */
+}
+
+@media (min-width: 850px) {
+  /* .banner {
+    height: 500px;
+  } */
+}
+
+@media (min-width: 1400px) {
+  /* .banner {
+    height: 500px;
+  } */
+}
+
+@media (min-width: 1600px) {
+  /* .banner {
+    height: 600px;
+  } */
+}
+
+@media (min-width: 1800px) {
+  /* .banner {
+    height: 700px;
+  } */
+  .description {
+    width: 45%;
+  }
+}
+
+@media (min-width: 2000px) {
+  /* .banner {
+    padding-left: 10px;
+  } */
+}
+
+@media (min-width: 2400px) {
+  /* .banner {
+    height: 900px;
+  } */
+}

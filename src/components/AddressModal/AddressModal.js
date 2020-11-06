@@ -52,8 +52,16 @@ export default class AddressModal extends Component {
             address={address}
             updateAddress={(value) => this.handleUpdateAddress(value)}
           />
-          <button onClick={(event) => this.handleClick(event)}>Cancel</button>
-          <button onClick={(ev) => this.handleSubmit(ev)}>Save</button>
+          <button
+            className="button"
+            onClick={(event) => this.handleClick(event)}
+          >
+            Cancel
+          </button>
+          &nbsp;
+          <button className="button" onClick={(ev) => this.handleSubmit(ev)}>
+            Save
+          </button>
         </Modal>
       </>
     );

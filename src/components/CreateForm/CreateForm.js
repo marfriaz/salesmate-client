@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Button, Input, Required } from "../Utils/Utils";
+
 import AccountApiService from "../../services/account-api-service";
 const industries = require("../../components/STORE/industries");
 
@@ -32,7 +34,7 @@ export default class AccountForm extends Component {
       [`${field}`]: value,
     });
     this.setState({ account: updates });
-    this.props.updateFields(this.state.account);
+    this.props.updateFields(updates);
   }
 
   handleUpdateAddress(field, value) {
@@ -67,6 +69,7 @@ export default class AccountForm extends Component {
                   >
                     Account Name:
                   </label>
+                  <Required />
                   <input
                     name="account_name"
                     type="text"
@@ -90,7 +93,6 @@ export default class AccountForm extends Component {
                     type="text"
                     name="stage"
                     id="Create_stage"
-                    required
                     value={account.stage}
                     onChange={(ev) =>
                       this.handleUpdateField("stage", ev.target.value)
@@ -109,6 +111,7 @@ export default class AccountForm extends Component {
                   >
                     Website:
                   </label>
+                  <Required />
                   <input
                     name="website"
                     type="text"
@@ -201,6 +204,7 @@ export default class AccountForm extends Component {
                   >
                     Phone:
                   </label>
+                  <Required />
                   <input
                     name="phone"
                     type="text"
@@ -329,6 +333,7 @@ export default class AccountForm extends Component {
                   >
                     Country:
                   </label>
+                  <Required />
                   <input
                     name="country"
                     type="text"

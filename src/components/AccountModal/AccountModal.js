@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Modal from "react-modal";
 import AccountApiService from "../../services/account-api-service";
 import AccountForm from "../../components/AccountForm/AccountForm";
+import "./AccountModal.css";
 
 export default class AccountModal extends Component {
   constructor(props) {
@@ -39,13 +40,21 @@ export default class AccountModal extends Component {
 
     return (
       <>
-        <Modal isOpen={this.props.modalIsOpen}>
+        <Modal overlayClassName="AccountModal" isOpen={this.props.modalIsOpen}>
           <AccountForm
             account={account}
             updateFields={(value) => this.handleUpdateField(value)}
           />
-          <button onClick={(event) => this.handleClick(event)}>Cancel</button>
-          <button onClick={(ev) => this.handleSubmit(ev)}>Save</button>
+          <button
+            className="button"
+            onClick={(event) => this.handleClick(event)}
+          >
+            Cancel
+          </button>
+          &nbsp;
+          <button className="button" onClick={(ev) => this.handleSubmit(ev)}>
+            Save
+          </button>
         </Modal>
       </>
     );

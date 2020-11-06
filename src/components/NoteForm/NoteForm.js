@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
+import { Required } from "../Utils/Utils";
 
 export default class NoteForm extends Component {
   constructor(props) {
@@ -59,6 +60,7 @@ export default class NoteForm extends Component {
             >
               Note:
             </label>
+            <Required />
             <input
               name="text"
               id="Create_note_text"
@@ -68,7 +70,9 @@ export default class NoteForm extends Component {
             />
           </div>
 
-          <button type="submit">Save</button>
+          <button className="button" type="submit">
+            Save
+          </button>
         </form>
       </>
     );

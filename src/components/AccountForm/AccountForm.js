@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Required } from "../Utils/Utils";
 import AccountApiService from "../../services/account-api-service";
 const industries = require("../../components/STORE/industries");
 
@@ -32,7 +33,7 @@ export default class AccountForm extends Component {
       [`${field}`]: value,
     });
     this.setState({ account: updates });
-    this.props.updateFields(this.state.account);
+    this.props.updateFields(updates);
   }
 
   handleUpdateAddress(field, value) {
@@ -42,7 +43,6 @@ export default class AccountForm extends Component {
     });
     this.setState({ address: updates });
     this.props.updateAddress(this.state.address);
-    console.log(this.state.address);
   }
 
   render() {
@@ -65,8 +65,9 @@ export default class AccountForm extends Component {
                     htmlFor="Create_account_name"
                     className="AccountPage__card__item__key"
                   >
-                    Account Name:
+                    Account Name
                   </label>
+                  <Required />
                   <input
                     name="account_name"
                     type="text"
@@ -109,6 +110,7 @@ export default class AccountForm extends Component {
                   >
                     Website:
                   </label>
+                  <Required />
                   <input
                     name="website"
                     type="text"
@@ -201,6 +203,7 @@ export default class AccountForm extends Component {
                   >
                     Phone:
                   </label>
+                  <Required />
                   <input
                     name="phone"
                     type="text"

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
 import ContactForm from "../ContactForm/ContactForm";
 import Modal from "react-modal";
+import "./ContactModal.css";
 
 export default class ContactModal extends Component {
   constructor(props) {
@@ -51,15 +52,26 @@ export default class ContactModal extends Component {
     const { contact, contactId } = this.props;
     return (
       <>
-        <Modal isOpen={this.props.modalIsOpen}>
+        <Modal className="ContactModal" isOpen={this.props.modalIsOpen}>
           <ContactForm
             contact={contact}
             contactId={contactId}
             updateFields={(value) => this.handleUpdateFields(value)}
             handleSubmit={(ev) => this.handlePatch(ev)}
           />
-          <button onClick={(event) => this.handleClick(event)}>Cancel</button>
-          <button onClick={(event) => this.handleDelete(event)}>Delete</button>
+          <button
+            className="button"
+            onClick={(event) => this.handleClick(event)}
+          >
+            Cancel
+          </button>
+          &nbsp;
+          <button
+            className="button"
+            onClick={(event) => this.handleDelete(event)}
+          >
+            Delete
+          </button>
         </Modal>
       </>
     );

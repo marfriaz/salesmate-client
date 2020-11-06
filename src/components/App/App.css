@@ -9,7 +9,8 @@
   padding-bottom: 20px;
 }
 
-.App__header .App__NavBar {
+.App__header,
+.App__NavBar {
   padding-left: 20px;
   padding-right: 20px;
 }

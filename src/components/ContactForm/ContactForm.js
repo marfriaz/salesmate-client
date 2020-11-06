@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
+import { Button, Input, Required } from "../Utils/Utils";
 
 export default class ContactForm extends Component {
   constructor(props) {
@@ -57,6 +58,7 @@ export default class ContactForm extends Component {
             >
               Name:
             </label>
+            <Required />
             <input
               name="name"
               id="Create_contact_name"
@@ -106,6 +108,7 @@ export default class ContactForm extends Component {
             >
               Phone:
             </label>
+            <Required />
             <input
               name="phone"
               id="Create_contact_title"
@@ -116,7 +119,9 @@ export default class ContactForm extends Component {
               }
             />
           </div>
-          <button type="submit">Save</button>
+          <button className="button" type="submit">
+            Save
+          </button>
         </form>
       </>
     );
