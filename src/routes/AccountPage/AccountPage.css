@@ -18,7 +18,7 @@
 
 .AccountPage__card {
   text-align: left;
-  margin: 10px 5px;
+  margin: 10px 0px;
   padding: 10px;
   border: 1px solid lightgray;
   border-radius: 10px;
@@ -51,6 +51,10 @@
 @media (min-width: 1500px) {
   .button {
     font-size: 22px;
+  }
+
+  .AccountPage__card {
+    margin: 10px 5px;
   }
 }
 
