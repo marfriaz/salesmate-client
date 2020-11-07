@@ -1,0 +1,28 @@
+.Note__card__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 70%;
+  border-bottom: 1px #cdcfd2 solid;
+  padding: 4px 2%;
+  min-height: 28px;
+}
+
+.Note__card__item__key {
+  display: flex;
+  flex-wrap: wrap;
+  width: 20%;
+  /* flex: 1; */
+}
+
+.Note__card__item__value {
+  display: flex;
+  width: 60%;
+  /* flex: 1; */
+  /* flex-wrap: wrap; */
+  word-wrap: break-word;
+}
+
+.saveButton {
+  margin-bottom: 1%;
+}

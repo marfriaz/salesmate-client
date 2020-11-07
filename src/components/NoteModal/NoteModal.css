@@ -1,0 +1,11 @@
+.NoteModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 30%;
+  padding-top: 2%;
+  background-color: white;
+  z-index: 1000;
+}
