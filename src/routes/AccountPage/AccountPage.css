@@ -33,6 +33,7 @@ input {
 .AccountPage__card__fields {
   display: flex;
   flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
 }
 
 .button {
