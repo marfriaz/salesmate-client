@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import TokenService from "../../services/token-service";
 import "./NavBar.css";

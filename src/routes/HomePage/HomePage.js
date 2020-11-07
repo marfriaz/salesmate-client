@@ -89,29 +89,29 @@ export default class HomePage extends Component {
           <div className="HomePage__Header">
             <h2>{this.renderHeader()}</h2>
           </div>
-          <div>
-            <div className="Account_List_Nav">
-              <ListNav
-                accountList={accountList}
-                handleSort={(sortedList) => this.handleSort(sortedList)}
-              />
-            </div>
-            <table id="customers">
-              <tbody>
-                <tr>
-                  <th>Account Name</th>
-                  <th>Stage</th>
-                  <th>Industry</th>
-                  <th>Territory</th>
-                </tr>
+          <div className="HomePage__Body">
+            <ListNav
+              accountList={accountList}
+              handleSort={(sortedList) => this.handleSort(sortedList)}
+            />
+            <div className="CustomersTableOuter">
+              <table id="CustomersTable">
+                <tbody>
+                  <tr>
+                    <th>Account Name</th>
+                    <th>Stage</th>
+                    <th>Industry</th>
+                    <th>Territory</th>
+                  </tr>
 
-                {error ? (
-                  <p className="red">There was an error, try again</p>
-                ) : (
-                  this.renderAccountList(accountList)
-                )}
-              </tbody>
-            </table>
+                  {error ? (
+                    <p className="red">There was an error, try again</p>
+                  ) : (
+                    this.renderAccountList(accountList)
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
         </Section>
       </>

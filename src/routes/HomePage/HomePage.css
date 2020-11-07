@@ -11,31 +11,51 @@
   font-size: 0.8em;
 }
 
-#customers {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
+.HomePage__Body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
-  overflow-x: auto;
+}
+.CustomersTableOuter {
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-#customers td,
-#customers th {
+#CustomersTable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  /* width: 100%; */
+
+  table-layout: fixed;
+}
+
+#CustomersTable td,
+#CustomersTable th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#customers tr:nth-child(even) {
+#CustomersTable tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#customers tr:hover {
+#CustomersTable tr:hover {
   background-color: #ddd;
 }
 
-#customers th {
+#CustomersTable th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
   background-color: #009edb;
   color: white;
+}
+
+@media (min-width: 800px) {
+  .CustomersTableOuter {
+    flex-direction: row;
+  }
 }

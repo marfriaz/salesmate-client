@@ -16,13 +16,13 @@ class Sorter extends Component {
 
   render() {
     return (
-      <div className="SearchBox_container ListNav">
-        <form className="SearchBox_form">
-          <label htmlFor="searchBox">Sort By:</label>
+      <div className="Sorter_container ListNav">
+        <form className="Sorter_form">
+          <label htmlFor="Sorter">Sort By:</label>
           <select
             type="text"
-            name="searchBox"
-            id="searchBox"
+            name="Sorter"
+            id="Sorter"
             placeholder="Search"
             defaultValue={"DEFAULT"}
             onChange={(e) => {

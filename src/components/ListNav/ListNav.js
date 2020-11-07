@@ -13,13 +13,13 @@ export default class ListNav extends Component {
 
   render() {
     return (
-      <nav className="Accounts_Nav">
+      <nav className="Account_List_Nav">
         <Sorter
           accountList={this.props.accountList}
           handleSort={(sortedList) => this.props.handleSort(sortedList)}
         />
         <Link to="/accounts/create">
-          <button className="button">Create New Account </button>
+          <button className="button createButton">Create New Account </button>
         </Link>
       </nav>
     );
