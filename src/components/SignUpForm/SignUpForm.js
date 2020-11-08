@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Input, Required } from "../Utils/Utils";
 import { Link } from "react-router-dom";
 import AuthApiService from "../../services/auth-api-service";
+import "./SignUpForm.css";
 
 export default class SignUpForm extends Component {
   static defaultProps = {
@@ -64,7 +65,7 @@ export default class SignUpForm extends Component {
               name="last_name"
               type="text"
               required
-              id="SignUpForm"
+              id="SignUpForm__last_name"
             ></Input>
           </div>
 
@@ -90,7 +91,7 @@ export default class SignUpForm extends Component {
               id="SignUpForm__password"
             ></Input>
           </div>
-          <Button className="Form-Button" type="submit">
+          <Button className="Form-Button button" type="submit">
             Sign Up
           </Button>
         </form>
