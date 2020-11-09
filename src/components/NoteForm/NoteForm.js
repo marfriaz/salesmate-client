@@ -62,6 +62,7 @@ export default class NoteForm extends Component {
               name="text"
               id="Create_note_text"
               className="Note__card__item__value"
+              required
               rows="3"
               cols="40"
               value={note.text}

@@ -31,7 +31,7 @@ export default class AccountPage extends Component {
     this.setState({ error: null });
     const { account, address } = this.state;
     let updates = { ...account, ...address };
-
+    console.log(updates);
     AccountApiService.postAccount({
       name: updates.name,
       stage: updates.stage,
@@ -73,19 +73,27 @@ export default class AccountPage extends Component {
 
     return (
       <>
-        <CreateForm
-          account={account}
-          address={address}
-          updateFields={(value) => this.handleUpdateField(value)}
-          updateAddress={(value) => this.handleUpdateAddress(value)}
-        />
-        <button className="button" onClick={(event) => this.handleClick(event)}>
-          Cancel
-        </button>
-        &nbsp;
-        <button className="button" onClick={(ev) => this.handleSubmit(ev)}>
-          Save
-        </button>
+        <div role="alert">{error && <p className="red">{error}</p>}</div>
+        <div className="AccountPage">
+          <form className="CreateAccountForm" onSubmit={this.handleSubmit}>
+            <CreateForm
+              account={account}
+              address={address}
+              updateFields={(value) => this.handleUpdateField(value)}
+              updateAddress={(value) => this.handleUpdateAddress(value)}
+            />
+            <button
+              className="button"
+              onClick={(event) => this.handleClick(event)}
+            >
+              Cancel
+            </button>
+            &nbsp;
+            <button className="button" type="submit">
+              Save
+            </button>
+          </form>
+        </div>
       </>
     );
   }

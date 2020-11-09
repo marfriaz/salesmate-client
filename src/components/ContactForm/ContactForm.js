@@ -63,6 +63,7 @@ export default class ContactForm extends Component {
               name="name"
               id="Create_contact_name"
               className="AccountPage__card__item__value"
+              required
               value={contact.name}
               onChange={(ev) => this.handleUpdateField("name", ev.target.value)}
             />
@@ -98,6 +99,7 @@ export default class ContactForm extends Component {
               name="phone"
               id="Create_contact_title"
               className="AccountPage__card__item__value"
+              required
               value={contact.phone}
               onChange={(ev) =>
                 this.handleUpdateField("phone", ev.target.value)
