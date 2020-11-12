@@ -51,14 +51,17 @@ export default class Contacts extends Component {
   }
 
   handleUpdateCreateContacts(contactId) {
+    console.log("This is the contact to delete", contactId);
     const { createContacts } = this.state;
     const index = createContacts.indexOf(
       createContacts.find((obj) => obj.contactId === contactId)
     );
+    console.log("But this is index", index);
     createContacts.splice(index, 1);
     this.setState({
       createContacts: createContacts,
     });
+    console.log(createContacts);
   }
 
   renderAccountContacts(contacts) {
@@ -78,15 +81,16 @@ export default class Contacts extends Component {
       createContacts: [
         ...this.state.createContacts,
         {
-          accountId: accountId,
-          contactId: this.state.createContacts.length + 1,
           name: "",
           title: "",
           phone: "",
           email: "",
+          accountId: accountId,
+          contactId: this.state.createContacts.length + 1,
         },
       ],
     });
+    console.log(this.state.createContacts);
   }
 
   handleUpdateContacts(contact) {

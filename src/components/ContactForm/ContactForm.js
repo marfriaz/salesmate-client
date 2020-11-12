@@ -25,18 +25,18 @@ export default class ContactForm extends Component {
     });
   }
 
-  handleSubmit = (ev) => {
-    const { accountId, contactId, name, title, phone, email } = this.props;
+  // handleSubmit = (ev) => {
+  //   const { accountId, contactId, name, title, phone, email } = this.props;
 
-    ev.preventDefault();
-    this.setState({ error: null });
-    AccountApiService.postContact(accountId, name, title, phone, email)
-      .then((contact) => this.props.updateContacts(contact))
-      .catch((res) => {
-        this.setState({ error: res.error });
-      });
-    this.props.updatecreateContacts(contactId);
-  };
+  //   ev.preventDefault();
+  //   this.setState({ error: null });
+  //   AccountApiService.postContact(accountId, name, title, phone, email)
+  //     .then((contact) => this.props.updateContacts(contact))
+  //     .catch((res) => {
+  //       this.setState({ error: res.error });
+  //     });
+  //   this.props.updatecreateContacts(contactId);
+  // };
 
   handleUpdateField(field, value) {
     const { contactId } = this.props;
@@ -46,6 +46,7 @@ export default class ContactForm extends Component {
     });
     this.setState({ contact: updates });
     this.props.updateFields(updates, contactId);
+    console.log(this.props.contactId);
   }
 
   render() {
