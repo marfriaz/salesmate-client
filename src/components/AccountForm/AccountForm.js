@@ -7,7 +7,17 @@ export default class AccountForm extends Component {
     super(props);
     this.state = {
       error: null,
-      account: {},
+      account: {
+        name: "",
+        stage: "",
+        website: "",
+        industry: "",
+        territory: "",
+        employee_range: "",
+        phone: "",
+        fax: "",
+        linkedin: "",
+      },
       address: {},
     };
   }
@@ -48,7 +58,9 @@ export default class AccountForm extends Component {
     const { error, account, address } = this.state;
 
     const industryList = industries.map((item, index) => (
-      <option value={item}>{item}</option>
+      <option value={item} key={index}>
+        {item}
+      </option>
     ));
 
     return (

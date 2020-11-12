@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
-
 import { Required } from "../Utils/Utils";
 
 export default class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      contact: {},
+      contact: {
+        name: "",
+        title: "",
+        phone: "",
+        email: "",
+      },
       contactId: this.props.contactId,
       accountId: this.props.accountId,
       error: null,

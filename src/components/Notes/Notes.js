@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
-
 import CardItemNote from "../CardItemNote/CardItemNote";
 import NoteModal from "../../components/NoteModal/NoteModal";
-
 import NoteForm from "../NoteForm/NoteForm";
 
 export default class Notes extends Component {
@@ -41,7 +39,7 @@ export default class Notes extends Component {
   handleModal(noteId) {
     const { notes } = this.state;
 
-    let editNote = notes.find((o) => o.id === noteId);
+    let editNote = notes.find((note) => note.id === noteId);
 
     if (this.state.modalIsOpen == false) {
       this.setState({ modalIsOpen: true });

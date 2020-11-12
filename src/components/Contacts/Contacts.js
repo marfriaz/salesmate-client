@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
-
 import CardItemContact from "../CardItemContact/CardItemContact";
 import ContactModal from "../../components/ContactModal/ContactModal";
 import ContactForm from "../ContactForm/ContactForm";
@@ -41,7 +40,7 @@ export default class Contacts extends Component {
   handleModal(contactId) {
     const { contacts } = this.state;
 
-    let editContact = contacts.find((o) => o.id === contactId);
+    let editContact = contacts.find((contact) => contact.id === contactId);
 
     if (this.state.modalIsOpen == false) {
       this.setState({ modalIsOpen: true });

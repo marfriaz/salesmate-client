@@ -7,7 +7,13 @@ export default class AddressForm extends Component {
     super(props);
     this.state = {
       error: null,
-      address: {},
+      address: {
+        street: "",
+        city: "",
+        zip_code: "",
+        state: "",
+        country: "",
+      },
     };
   }
 

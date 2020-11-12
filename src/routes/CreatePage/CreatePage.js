@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import AccountApiService from "../../services/account-api-service";
-
 import CreateForm from "../../components/CreateForm/CreateForm";
 
 export default class AccountPage extends Component {
@@ -12,18 +11,8 @@ export default class AccountPage extends Component {
 
   state = {
     error: null,
-    account: {
-      name: "",
-      stage: "",
-      website: "",
-      industry: "",
-      territory: "",
-      employee_range: "",
-      phone: "",
-      fax: "",
-      linkedin: "",
-    },
-    address: { street: "", city: "", zip_code: "", state: "", country: "" },
+    account: {},
+    address: {},
   };
 
   handleSubmit = (ev) => {

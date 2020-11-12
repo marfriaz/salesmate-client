@@ -3,13 +3,23 @@ import { Button, Input, Required } from "../Utils/Utils";
 
 const industries = require("../../components/STORE/industries");
 
-export default class AccountForm extends Component {
+export default class CreateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
-      account: {},
-      address: {},
+      account: {
+        name: "",
+        stage: "",
+        website: "",
+        industry: "",
+        territory: "",
+        employee_range: "",
+        phone: "",
+        fax: "",
+        linkedin: "",
+      },
+      address: { street: "", city: "", zip_code: "", state: "", country: "" },
     };
   }
 
@@ -49,7 +59,9 @@ export default class AccountForm extends Component {
     const { error, account, address } = this.state;
 
     const industryList = industries.map((item, index) => (
-      <option value={item}>{item}</option>
+      <option value={item} key={index}>
+        {item}
+      </option>
     ));
 
     return (
