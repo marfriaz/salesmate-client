@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import TokenService from "../../services/token-service";
-import "./NavBar.css";
 
 export default class Navbar extends Component {
   static defaultProps = {
@@ -29,15 +28,7 @@ export default class Navbar extends Component {
 
         <div className="Header_login">
           <div className="Header__not-logged-in">
-            <Link
-              to="/accounts"
-              // onClick={(e) => {
-              //   e.preventDefault();
-              //   this.handleClick(e);
-              // }}
-            >
-              All Accounts &nbsp;{" "}
-            </Link>
+            <Link to="/accounts">All Accounts &nbsp; </Link>
             <Link to="/accounts/stage/leads">Leads &nbsp;</Link>
             <Link to="/accounts/stage/sold">Sold &nbsp;</Link>
           </div>
