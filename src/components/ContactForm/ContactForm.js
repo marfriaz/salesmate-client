@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import AccountApiService from "../../services/account-api-service";
 import { Required } from "../Utils/Utils";
 
 export default class ContactForm extends Component {
@@ -25,22 +24,9 @@ export default class ContactForm extends Component {
     });
   }
 
-  // handleSubmit = (ev) => {
-  //   const { accountId, contactId, name, title, phone, email } = this.props;
-
-  //   ev.preventDefault();
-  //   this.setState({ error: null });
-  //   AccountApiService.postContact(accountId, name, title, phone, email)
-  //     .then((contact) => this.props.updateContacts(contact))
-  //     .catch((res) => {
-  //       this.setState({ error: res.error });
-  //     });
-  //   this.props.updatecreateContacts(contactId);
-  // };
-
   handleUpdateField(field, value) {
     const { contactId } = this.props;
-    let updates = { ...this.state.contact };
+    let updates = { ...this.props.contact };
     Object.assign(updates, {
       [`${field}`]: value,
     });
@@ -50,7 +36,7 @@ export default class ContactForm extends Component {
   }
 
   render() {
-    const { contact } = this.state;
+    const { contact } = this.props;
     return (
       <>
         <form

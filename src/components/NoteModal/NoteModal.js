@@ -21,6 +21,7 @@ export default class NoteModal extends Component {
   }
 
   handlePatch = (ev) => {
+    ev.preventDefault();
     this.setState({ error: null });
     const { note } = this.state;
 
@@ -33,7 +34,8 @@ export default class NoteModal extends Component {
       });
   };
 
-  handleDelete() {
+  handleDelete(ev) {
+    ev.preventDefault();
     AccountApiService.deleteNote(this.props.noteId).catch((err) =>
       this.setState({ error: err })
     );
@@ -49,7 +51,7 @@ export default class NoteModal extends Component {
   }
 
   render() {
-    const { note, noteId } = this.props;
+    const { note, noteId } = this.state;
     return (
       <>
         <Modal className="NoteModal" isOpen={this.props.modalIsOpen}>

@@ -133,12 +133,14 @@ export default class Notes extends Component {
     const { notes } = this.state;
     return (
       <>
-        <NoteModal
-          modalIsOpen={this.state.modalIsOpen}
-          triggerModal={() => this.handleModal()}
-          note={this.state.editNote}
-          noteId={this.state.editNote.id}
-        />
+        {this.state.modalIsOpen && (
+          <NoteModal
+            modalIsOpen={this.state.modalIsOpen}
+            triggerModal={() => this.handleModal()}
+            note={this.state.editNote}
+            noteId={this.state.editNote.id}
+          />
+        )}
         <div className="AccountPage__card">
           <div className="AccountPage__card__header">Notes</div>
           <div className="AccountPage__card__fields">

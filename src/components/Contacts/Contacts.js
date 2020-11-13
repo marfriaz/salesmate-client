@@ -147,12 +147,14 @@ export default class Contacts extends Component {
     const { contacts } = this.state;
     return (
       <>
-        <ContactModal
-          modalIsOpen={this.state.modalIsOpen}
-          triggerModal={() => this.handleModal()}
-          contact={this.state.editContact}
-          contactId={this.state.editContact.id}
-        />
+        {this.state.modalIsOpen && (
+          <ContactModal
+            modalIsOpen={this.state.modalIsOpen}
+            triggerModal={() => this.handleModal()}
+            contact={this.state.editContact}
+            contactId={this.state.editContact.id}
+          />
+        )}
         <div className="AccountPage__card">
           <div className="AccountPage__card__header">Contacts</div>
           <div className="AccountPage__card__fields">

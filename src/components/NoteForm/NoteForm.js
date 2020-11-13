@@ -47,7 +47,7 @@ export default class NoteForm extends Component {
   }
 
   render() {
-    const { note } = this.state;
+    const { note } = this.props;
     return (
       <>
         <form
