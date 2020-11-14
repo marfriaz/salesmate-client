@@ -19,6 +19,7 @@
 }
 
 .Sorter_form {
+  width: 100%;
   margin-left: 20px;
   margin-right: 20px;
   text-align: center;
@@ -29,7 +30,6 @@
 }
 
 #Sorter {
-  width: 100%;
   font-size: 17px;
   font-weight: 800;
   margin-left: 16px;
