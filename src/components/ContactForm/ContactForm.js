@@ -32,7 +32,6 @@ export default class ContactForm extends Component {
     });
     this.setState({ contact: updates });
     this.props.updateFields(updates, contactId);
-    console.log(this.props.contactId);
   }
 
   render() {

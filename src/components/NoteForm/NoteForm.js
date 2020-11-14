@@ -35,7 +35,6 @@ export default class NoteForm extends Component {
   };
 
   updateText(value) {
-    // this.setState({ text: value });
     const { noteId } = this.props;
     let updates = { ...this.state.contact };
     Object.assign(updates, {

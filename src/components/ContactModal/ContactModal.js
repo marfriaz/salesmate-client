@@ -44,7 +44,6 @@ export default class ContactModal extends Component {
 
   handleUpdateFields(value) {
     this.setState({ contact: value });
-    console.log(this.state.contact);
   }
 
   handleClick(e) {

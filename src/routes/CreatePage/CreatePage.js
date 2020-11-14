@@ -20,7 +20,6 @@ export default class AccountPage extends Component {
     this.setState({ error: null });
     const { account, address } = this.state;
     let updates = { ...account, ...address };
-    console.log(updates);
     AccountApiService.postAccount({
       name: updates.name,
       stage: updates.stage,

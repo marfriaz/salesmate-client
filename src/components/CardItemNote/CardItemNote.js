@@ -3,8 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./CardItemNote.css";
 
-// import { format as formatDate } from "date-fns";
-
 export default class CardItemNote extends Component {
   NiceDate(date) {
     var d = new Date(date),
