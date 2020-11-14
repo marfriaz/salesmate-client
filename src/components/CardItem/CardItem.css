@@ -63,13 +63,11 @@ button:focus {
   .AccountPage__card__item__key {
     display: flex;
     flex-wrap: wrap;
-    /* flex: 0; */
   }
 
   .AccountPage__card__item__value {
     display: flex;
     width: 100%;
-    /* flex: 0; */
     flex-wrap: wrap;
     word-break: break-all;
   }

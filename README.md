@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SalesMate
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+SalesMate: a Customer Relationship Management tool. Users can track account information, notes and contacts in one place.
 
-### `npm start`
+This repo is the front-end client, built in React. You can see the Live Demo at: [https://salesmate.vercel.app/](https://salesmate.vercel.app/).
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The API can be found at [https://github.com/marfriaz/salesmate-server](https://github.com/marfriaz/salesmate-server).
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+To try out this app, you can create a new account from the Sign Up page or use the Demo Account listed below.
 
-### `npm test`
+#### Demo Account Details
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Email: user@gmail.com
+- Password: password
 
-### `npm run build`
+## Technology
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Front End
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- React
+  - [Create React App](https://github.com/facebook/create-react-app)
+  - React Router
+- HTML5
+- CSS3 (scratch - no frameworks)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Testing
 
-### `npm run eject`
+- Jest (smoke tests)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Production
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Deployed via Vercel
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Features
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Responsive design
+- Create, Update and Delete Accounts, Contacts and Notes
+- Sort existing Accounts by Name, Stage, Industry and Territory
+- Search Accounts with a Typeahead Search Bar
+- "Sign Up" form
+- "Login" form
 
-## Learn More
+## Motivation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+My background is working in Operations for a Data Assurance team at Linkedin, where I crafted solutions to enhance CRM (SFDC, Dynamics, and a custom CRM) data accuracy for our Sales Org’s 4M+ accounts. I worked alongside Engineering to create several tools, for our team’s 80+ vendor analysts, providing requirements for the logic of several automations and conducting User Acceptance Testing. I wanted to get first-hand experience on how CRMs are built and how they could be improved. Hence, I created SalesMate: a custom made CRM.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Getting Started
 
-### Code Splitting
+Run `npm install` to load dependencies
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Run `npm test` to ensure a stable build
 
-### Analyzing the Bundle Size
+This is only the front end client, so develop locally you'll need the backend server as well.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+To get the backend up and running see [https://github.com/marfriaz/salesmate-server](https://github.com/marfriaz/salesmate-server)
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Deployments are handled through Vercel and can be run via `npm run deploy`

@@ -54,47 +54,8 @@ h1 {
   }
 }
 
-@media (min-width: 750px) {
-  /* .banner {
-    height: 450px;
-  } */
-}
-
-@media (min-width: 850px) {
-  /* .banner {
-    height: 500px;
-  } */
-}
-
-@media (min-width: 1400px) {
-  /* .banner {
-    height: 500px;
-  } */
-}
-
-@media (min-width: 1600px) {
-  /* .banner {
-    height: 600px;
-  } */
-}
-
 @media (min-width: 1800px) {
-  /* .banner {
-    height: 700px;
-  } */
   .description {
     width: 45%;
   }
-}
-
-@media (min-width: 2000px) {
-  /* .banner {
-    padding-left: 10px;
-  } */
-}
-
-@media (min-width: 2400px) {
-  /* .banner {
-    height: 900px;
-  } */
 }

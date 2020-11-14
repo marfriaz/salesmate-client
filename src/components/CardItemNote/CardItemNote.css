@@ -22,7 +22,6 @@
 
 .editNoteButton,
 .deleteNoteButton {
-  /* display: none; */
   background-color: transparent;
   color: white;
   border: none;

@@ -39,7 +39,6 @@
 
 @media (max-width: 450px) {
   .TypeAheadDropDown input {
-    /* width: 100%; */
     width: 105px;
   }
 

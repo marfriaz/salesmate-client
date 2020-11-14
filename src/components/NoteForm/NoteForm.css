@@ -12,14 +12,12 @@
   display: flex;
   flex-wrap: wrap;
   width: 20%;
-  /* flex: 1; */
 }
 
 .Note__card__item__value {
   display: flex;
   width: 60%;
-  /* flex: 1; */
-  /* flex-wrap: wrap; */
+
   word-wrap: break-word;
 }
 
