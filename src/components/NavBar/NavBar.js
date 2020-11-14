@@ -25,7 +25,6 @@ export default class Navbar extends Component {
     return (
       <nav className="Header">
         <SearchBox />
-
         <div className="Header_login">
           <div className="Header__not-logged-in">
             <Link to="/accounts">All Accounts &nbsp; </Link>
