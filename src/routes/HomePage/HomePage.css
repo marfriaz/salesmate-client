@@ -18,6 +18,7 @@
   width: 100%;
 }
 .CustomersTableOuter {
+  margin-top: 1%;
   overflow-x: scroll;
   display: flex;
   flex-direction: column;
