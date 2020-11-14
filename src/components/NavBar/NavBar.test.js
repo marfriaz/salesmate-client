@@ -8,7 +8,7 @@ describe("NavBar Component", () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <MemoryRouter>
-        <ListNav />
+        <NavBar />
       </MemoryRouter>,
       div
     );
