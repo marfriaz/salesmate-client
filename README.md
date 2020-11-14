@@ -46,6 +46,14 @@ To try out this app, you can create a new account from the Sign Up page or use t
 
 My background is working in Operations for a Data Assurance team at Linkedin, where I crafted solutions to enhance CRM (SFDC, Dynamics, and a custom CRM) data accuracy for our Sales Org’s 4M+ accounts. I worked alongside Engineering to create several tools, for our team’s 80+ vendor analysts, providing requirements for the logic of several automations and conducting User Acceptance Testing. I wanted to get first-hand experience on how CRMs are built and how they could be improved. Hence, I created SalesMate: a custom made CRM.
 
+## Video Demos
+
+#### Video Demos in mobile viewport but this App supports a responsive design
+
+- [SalesMate (Youtube Vid Demo)](https://www.youtube.com/watch?v=ewOhZxTmeWs&feature=youtu.be&ab_channel=MarcoFriaz)
+
+[![Watch the video](https://i.imgur.com/7SRjxdY.png)](https://www.youtube.com/watch?v=ewOhZxTmeWs&feature=youtu.be&ab_channel=MarcoFriaz)
+
 ## Getting Started
 
 Run `npm install` to load dependencies
