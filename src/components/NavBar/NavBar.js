@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import TokenService from "../../services/token-service";
 
-export default class Navbar extends Component {
+export default class NavBar extends Component {
   static defaultProps = {
     location: {},
     history: {
