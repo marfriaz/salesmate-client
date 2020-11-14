@@ -53,6 +53,12 @@ input {
   }
 }
 
+@media (min-width: 1100px) {
+  .button {
+    font-size: 20px;
+  }
+}
+
 @media (min-width: 1500px) {
   .button {
     font-size: 22px;

@@ -41,6 +41,23 @@ export default class AccountPage extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    const { accountId } = this.props.match.params;
+
+    if (prevProps.match.params.accountId !== accountId) {
+      AccountApiService.getAccount(accountId)
+        .then((res) => {
+          this.setState({
+            account: res,
+            address: res.address,
+          });
+        })
+        .catch((res) => {
+          this.setState({ error: res.error });
+        });
+    }
+  }
+
   componentWillUnmount() {
     this.setState({ error: null });
   }
