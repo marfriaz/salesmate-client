@@ -100,11 +100,13 @@ export default class CreateForm extends Component {
                 type="text"
                 name="stage"
                 id="Create_stage"
+                defaultValue={"DEFAULT"}
                 value={account.stage}
                 onChange={(ev) =>
                   this.handleUpdateField("stage", ev.target.value)
                 }
               >
+                <option value="DEFAULT">Select </option>
                 <option value="Lead">Lead</option>
                 <option value="Sold">Sold</option>
                 <option value="not-interested">Not Interested</option>
@@ -141,12 +143,14 @@ export default class CreateForm extends Component {
                 type="text"
                 name="industry"
                 id="Create_industry"
+                defaultValue={"DEFAULT"}
                 required
                 value={account.industry}
                 onChange={(ev) =>
                   this.handleUpdateField("industry", ev.target.value)
                 }
               >
+                <option value="DEFAULT">Select</option>
                 {industryList}
               </select>
             </div>
@@ -162,12 +166,14 @@ export default class CreateForm extends Component {
                 type="text"
                 name="territory"
                 id="Create_territory"
+                defaultValue={"DEFAULT"}
                 required
                 value={account.territory}
                 onChange={(ev) =>
                   this.handleUpdateField("territory", ev.target.value)
                 }
               >
+                <option value="DEFAULT">Select </option>
                 <option value="NAMER">NAMER</option>
                 <option value="EMEA">EMEA</option>
                 <option value="LATAM">LATAM</option>
@@ -185,12 +191,14 @@ export default class CreateForm extends Component {
                 type="text"
                 name="employee_range"
                 id="Create_employee_range"
+                defaultValue={"DEFAULT"}
                 required
                 value={account.employee_range}
                 onChange={(ev) =>
                   this.handleUpdateField("employee_range", ev.target.value)
                 }
               >
+                <option value="DEFAULT">Select </option>
                 <option value="Self-Employed">Self Employed</option>
                 <option value="1-10">1-10</option>
                 <option value="11-50">11-50</option>
