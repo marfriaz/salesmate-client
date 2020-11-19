@@ -109,8 +109,8 @@ export default class AccountForm extends Component {
                     }
                   >
                     <option value="DEFAULT">Select </option>
-                    <option value="lead">Lead</option>
-                    <option value="sold">Sold</option>
+                    <option value="Lead">Lead</option>
+                    <option value="Sold">Sold</option>
                     <option value="not-interested">Not Interested</option>
                   </select>
                 </div>
