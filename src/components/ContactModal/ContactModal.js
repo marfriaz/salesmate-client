@@ -36,10 +36,11 @@ export default class ContactModal extends Component {
 
   handleDelete(ev) {
     ev.preventDefault();
-    AccountApiService.deleteContact(this.props.contactId).catch((err) =>
-      this.setState({ error: err })
-    );
-    window.location.reload();
+    AccountApiService.deleteContact(this.props.contactId)
+      .then(window.location.reload())
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
   }
 
   handleUpdateFields(value) {

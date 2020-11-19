@@ -36,10 +36,9 @@ export default class NoteModal extends Component {
 
   handleDelete(ev) {
     ev.preventDefault();
-    AccountApiService.deleteNote(this.props.noteId).catch((err) =>
-      this.setState({ error: err })
-    );
-    window.location.reload();
+    AccountApiService.deleteNote(this.props.noteId)
+      .then(window.location.reload())
+      .catch((err) => this.setState({ error: err }));
   }
 
   handleUpdateFields(value) {

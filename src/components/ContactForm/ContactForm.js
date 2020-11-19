@@ -2,35 +2,12 @@ import React, { Component } from "react";
 import { Required } from "../Utils/Utils";
 
 export default class ContactForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      contact: {
-        name: "",
-        title: "",
-        phone: "",
-        email: "",
-      },
-      contactId: this.props.contactId,
-      accountId: this.props.accountId,
-      error: null,
-    };
-  }
-
-  componentDidMount() {
-    const { contact } = this.props;
-    this.setState({
-      contact: contact,
-    });
-  }
-
   handleUpdateField(field, value) {
     const { contactId } = this.props;
     let updates = { ...this.props.contact };
     Object.assign(updates, {
       [`${field}`]: value,
     });
-    this.setState({ contact: updates });
     this.props.updateFields(updates, contactId);
   }
 
