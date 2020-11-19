@@ -10,6 +10,7 @@ export default class NoteModal extends Component {
     this.state = {
       note: {},
       noteId: this.props.noteId,
+      error: null,
     };
   }
 
@@ -34,11 +35,13 @@ export default class NoteModal extends Component {
       });
   };
 
-  handleDelete(ev) {
-    ev.preventDefault();
-    AccountApiService.deleteNote(this.props.noteId)
-      .then(window.location.reload())
-      .catch((err) => this.setState({ error: err }));
+  async handleDelete(ev) {
+    try {
+      await AccountApiService.deleteNote(this.props.noteId);
+    } catch (err) {
+      this.setState({ error: err });
+    }
+    window.location.reload();
   }
 
   handleUpdateFields(value) {

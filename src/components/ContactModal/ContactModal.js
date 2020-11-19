@@ -10,6 +10,7 @@ export default class ContactModal extends Component {
     this.state = {
       contact: {},
       contactId: this.props.contactId,
+      error: null,
     };
   }
 
@@ -34,13 +35,13 @@ export default class ContactModal extends Component {
       });
   };
 
-  handleDelete(ev) {
-    ev.preventDefault();
-    AccountApiService.deleteContact(this.props.contactId)
-      .then(window.location.reload())
-      .catch((res) => {
-        this.setState({ error: res.error });
-      });
+  async handleDelete(ev) {
+    try {
+      await AccountApiService.deleteContact(this.props.contactId);
+    } catch (err) {
+      this.setState({ error: err });
+    }
+    window.location.reload();
   }
 
   handleUpdateFields(value) {
