@@ -14,11 +14,8 @@ export default class SignUpForm extends Component {
   handleSubmit = (ev) => {
     ev.preventDefault();
     this.setState({ error: null });
-
     const { first_name, last_name, email, password } = ev.target;
-    console.log(email.value);
 
-    this.setState({ error: null });
     AuthApiService.postUser({
       first_name: first_name.value,
       last_name: last_name.value,

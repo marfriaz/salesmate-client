@@ -22,5 +22,16 @@
 }
 
 .saveButton {
+  margin-top: 0.5%;
   margin-bottom: 1%;
+}
+
+@media (max-width: 650px) {
+  .Note__card__item {
+    width: 100%;
+  }
+
+  .saveButton {
+    width: 60px;
+  }
 }
