@@ -13,7 +13,10 @@ export default class SignUpForm extends Component {
 
   handleSubmit = (ev) => {
     ev.preventDefault();
+    this.setState({ error: null });
+
     const { first_name, last_name, email, password } = ev.target;
+    console.log(email.value);
 
     this.setState({ error: null });
     AuthApiService.postUser({
@@ -22,11 +25,7 @@ export default class SignUpForm extends Component {
       email: email.value,
       password: password.value,
     })
-      .then((user) => {
-        first_name.value = "";
-        last_name.value = "";
-        email.value = "";
-        password.value = "";
+      .then(() => {
         this.props.onSignUpSuccess();
       })
       .catch((res) => {

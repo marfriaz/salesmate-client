@@ -9,15 +9,15 @@ export default class SignUpPage extends Component {
     },
   };
 
-  handleSignUpSuccess = (user) => {
+  handleSignUpSuccess() {
     const { history } = this.props;
     history.push("/login");
-  };
+  }
 
   render() {
     return (
       <Section className="SignUpPage">
-        <SignUpForm onSignUpSuccess={this.handleSignUpSuccess} />
+        <SignUpForm onSignUpSuccess={() => this.handleSignUpSuccess()} />
       </Section>
     );
   }
