@@ -5,7 +5,7 @@ const AccountApiService = {
   getAccounts() {
     return fetch(
       `${config.API_ENDPOINT}/accounts`,
-      { mode: "no-cors" },
+      { mode: "cors" },
       {
         headers: {},
       }
