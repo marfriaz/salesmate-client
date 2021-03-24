@@ -3,16 +3,9 @@ import config from "../config";
 
 const AccountApiService = {
   getAccounts() {
-    return fetch(
-      `${config.API_ENDPOINT}/accounts`,
-      {
-        mode: "cors",
-        credentials: "include",
-      },
-      {
-        headers: {},
-      }
-    ).then((res) =>
+    return fetch(`${config.API_ENDPOINT}/accounts`, {
+      headers: {},
+    }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
