@@ -3,9 +3,13 @@ import config from "../config";
 
 const AccountApiService = {
   getAccounts() {
-    return fetch(`${config.API_ENDPOINT}/accounts`, {
-      headers: {},
-    }).then((res) =>
+    return fetch(
+      `${config.API_ENDPOINT}/accounts`,
+      { mode: "no-cors" },
+      {
+        headers: {},
+      }
+    ).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
