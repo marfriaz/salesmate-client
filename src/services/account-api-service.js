@@ -5,7 +5,10 @@ const AccountApiService = {
   getAccounts() {
     return fetch(
       `${config.API_ENDPOINT}/accounts`,
-      { mode: "cors" },
+      {
+        mode: "cors",
+        credentials: "include",
+      },
       {
         headers: {},
       }
