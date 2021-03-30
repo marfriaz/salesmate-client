@@ -55,7 +55,7 @@ export default class AccountForm extends Component {
   }
 
   render() {
-    const { error, account, address } = this.state;
+    const { error, account } = this.state;
 
     const industryList = industries.map((item, index) => (
       <option value={item} key={index}>

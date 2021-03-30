@@ -48,6 +48,7 @@ export default class HomePage extends Component {
 
   componentDidUpdate(prevProps) {
     const { accountStage } = this.props.match.params;
+    const resource = this.props.location.search;
 
     const uri = this.props.location.search;
     let queryPage = uri.slice(1).split(/&|=/)[1];
@@ -56,7 +57,6 @@ export default class HomePage extends Component {
     if (queryPage) {
       page = queryPage;
     }
-    const resource = this.props.location.search;
 
     if (
       prevProps.match.params.accountStage !== accountStage ||
