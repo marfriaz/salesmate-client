@@ -1,4 +1,5 @@
 .TypeAheadDropDown {
+  max-height: 150px;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -20,16 +21,20 @@
 }
 
 .TypeAheadDropDown ul {
+  position: absolute;
   list-style-type: none;
   text-align: left;
   margin: 0;
   padding: 0;
   border-top: 1px solid gray;
+  max-height: 100px;
+  overflow-y: auto;
 }
 
 .TypeAheadDropDown li {
   padding: 10px 5px;
   cursor: pointer;
+  background-color: white;
 }
 
 .TypeAheadDropDown li:hover {
@@ -44,5 +49,11 @@
 
   .TypeAheadDropDown input {
     padding: 5px 2px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .TypeAheadDropDown ul {
+    max-height: 175px;
   }
 }

@@ -3,6 +3,7 @@ import AccountApiService from "../../services/account-api-service";
 import { Section } from "../../components/Utils/Utils";
 import ListNav from "../../components/ListNav/ListNav";
 import ListItem from "../../components/ListItem/ListItem";
+import Paginate from "../../components/Paginate/Paginate";
 import "./HomePage.css";
 
 export default class HomePage extends Component {
@@ -21,17 +22,25 @@ export default class HomePage extends Component {
   componentDidMount() {
     const { accountStage } = this.props.match.params;
 
+    const uri = this.props.location.search;
+    let queryPage = uri.slice(1).split(/&|=/)[1];
+    let page = null;
+
+    if (queryPage) {
+      page = queryPage;
+    }
+
     if (accountStage == "leads") {
-      AccountApiService.getAccountByStage("lead")
+      AccountApiService.getAccountByStage("lead", page)
         .then((res) => this.setState({ accountList: res }))
         .catch((err) => this.setState({ error: err }));
     }
     if (accountStage == "sold") {
-      AccountApiService.getAccountByStage("sold")
+      AccountApiService.getAccountByStage("sold", page)
         .then((res) => this.setState({ accountList: res }))
         .catch((err) => this.setState({ error: err }));
     } else {
-      AccountApiService.getAccounts()
+      AccountApiService.getAccounts(page)
         .then((res) => this.setState({ accountList: res }))
         .catch((err) => this.setState({ error: err }));
     }
@@ -40,17 +49,29 @@ export default class HomePage extends Component {
   componentDidUpdate(prevProps) {
     const { accountStage } = this.props.match.params;
 
-    if (prevProps.match.params.accountStage !== accountStage) {
+    const uri = this.props.location.search;
+    let queryPage = uri.slice(1).split(/&|=/)[1];
+    let page = null;
+
+    if (queryPage) {
+      page = queryPage;
+    }
+    const resource = this.props.location.search;
+
+    if (
+      prevProps.match.params.accountStage !== accountStage ||
+      (resource && resource !== prevProps.location.search)
+    ) {
       if (accountStage == "leads") {
-        AccountApiService.getAccountByStage("lead")
+        AccountApiService.getAccountByStage("lead", page)
           .then((res) => this.setState({ accountList: res }))
           .catch((err) => this.setState({ error: err }));
       } else if (accountStage == "sold") {
-        AccountApiService.getAccountByStage("sold")
+        AccountApiService.getAccountByStage("sold", page)
           .then((res) => this.setState({ accountList: res }))
           .catch((err) => this.setState({ error: err }));
       } else {
-        AccountApiService.getAccounts()
+        AccountApiService.getAccounts(page)
           .then((res) => this.setState({ accountList: res }))
           .catch((err) => this.setState({ error: err }));
       }
@@ -68,10 +89,11 @@ export default class HomePage extends Component {
   }
 
   renderHeader() {
-    if (this.props.match.params.accountStage == "leads") {
+    const { accountStage } = this.props.match.params;
+    if (accountStage == "leads") {
       return "Leads";
     }
-    if (this.props.match.params.accountStage == "sold") {
+    if (accountStage == "sold") {
       return "Sold";
     } else return "All Accounts";
   }
@@ -82,6 +104,10 @@ export default class HomePage extends Component {
 
   render() {
     const { accountList, error } = this.state;
+    const pageQuery = this.props.location.search.slice(1).split(/&|=/)[1];
+
+    const page = pageQuery ? parseInt(pageQuery, 10) : 1;
+    const next = accountList.length / 20 >= 1;
 
     return (
       <>
@@ -113,6 +139,11 @@ export default class HomePage extends Component {
               </table>
             </div>
           </div>
+          <Paginate
+            page={page}
+            next={next}
+            updatePage={(page) => this.updatePage(page)}
+          />
         </Section>
       </>
     );

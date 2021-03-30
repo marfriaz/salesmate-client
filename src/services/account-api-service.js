@@ -2,15 +2,24 @@ import TokenService from "./token-service";
 import config from "../config";
 
 const AccountApiService = {
-  getAccounts() {
-    return fetch(`${config.API_ENDPOINT}/accounts`, {
+  getAccounts(page) {
+    let pageQuery = "";
+    if (page) {
+      pageQuery = `?page=${page}`;
+    }
+    return fetch(`${config.API_ENDPOINT}/accounts${pageQuery}`, {
       headers: {},
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+
   getAccountsByName(name) {
-    return fetch(`${config.API_ENDPOINT}/accounts?name=${name}`, {
+    let nameQuery = "";
+    if (name) {
+      nameQuery = `?name=${name}`;
+    }
+    return fetch(`${config.API_ENDPOINT}/accounts${nameQuery}`, {
       headers: {},
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
@@ -34,8 +43,12 @@ const AccountApiService = {
     );
   },
 
-  getAccountByStage(stage) {
-    return fetch(`${config.API_ENDPOINT}/accounts/stage/${stage}`, {
+  getAccountByStage(stage, page) {
+    let pageQuery = "";
+    if (page) {
+      pageQuery = `?page=${page}`;
+    }
+    return fetch(`${config.API_ENDPOINT}/accounts/stage/${stage}${pageQuery}`, {
       headers: {},
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
